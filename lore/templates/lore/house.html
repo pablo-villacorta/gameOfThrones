@@ -1,0 +1,28 @@
+<html>
+    <head></head>
+    <body>
+        <header>
+            <h2>{{ house.name }}</h2>
+            <img src="{{ house.logoURL }}" width="200" height="auto">
+        </header>
+        <h3>{{ house.words }}</h3>
+        <h4>Seat:</h4>
+        <ul>
+            {% for s in house.seat %}
+                <li>{{ s }}</li>
+            {% endfor %}
+        </ul>
+        <h4>Allegiances:</h4>
+        <ul>
+            {% for a in house.allegiance %}
+                <li><a href="/lore/house/{{a}}">{{ a }}</a></li>
+            {% endfor %}
+        </ul>
+        <h4>Related characters:</h4>
+        <ul>
+            {% for c in characters %}
+                <li><a href="/lore/character/{{ c.name }}">{{ c.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
