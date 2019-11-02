@@ -12,6 +12,8 @@ def index(request):
 
 def house(request, name):
     house = api.getHouse(name)
+    if (house == None):
+        return handler404(request, None)
     characters = api.getCharacters(name)
     return render(request, 'lore/house.html', {
         "house": house,
@@ -20,6 +22,10 @@ def house(request, name):
 
 def character(request, name):
     character = api.getCharacterByName(name)
+    if character == None: return handler404(request, None)
     return render(request, 'lore/character.html', {
         "character": character
     })
+
+def handler404(request, exception):
+    return render(request, 'lore/404.html', status=404)
