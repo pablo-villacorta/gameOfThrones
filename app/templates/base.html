@@ -1,0 +1,22 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <header>
+            <h1>Game of Thrones</h1>
+            <a href="/lore">Lore</a>
+            <a href="/forum">Forum</a>
+            {% if request.session.username %}
+                <h3>Logged in as {{request.session.username}}</h3>
+                <a href="/logout">Log out</a>
+            {% else %}
+                <a href="/login">Log in</a>
+            {% endif %}
+        </header>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
