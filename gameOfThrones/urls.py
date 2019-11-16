@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app import views
+from lore import views
 
 handler404 = views.handler404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('app.urls'))
+    path('lore/', include('lore.urls')),
+    path('fanzone/', include('fanzone.urls'))
 ]
