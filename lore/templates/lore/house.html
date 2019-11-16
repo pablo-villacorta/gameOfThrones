@@ -6,15 +6,9 @@
             <img src="{{ house.logoURL }}" width="200" height="auto">
         </header>
         <h3>{{ house.words }}</h3>
-        <h4>Seat:</h4>
-        <ul>
-            {% for s in house.seat %}
-                <li>{{ s }}</li>
-            {% endfor %}
-        </ul>
         <h4>Allegiances:</h4>
         <ul>
-            {% for a in house.allegiance %}
+            {% for a in allegiance %}
                 <li><a href="/lore/house/{{a}}">{{ a }}</a></li>
             {% endfor %}
         </ul>

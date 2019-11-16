@@ -15,6 +15,11 @@ def getHouse(name):
     if (len(resp) == 0): return None
     return resp[0]
 
+def getAllCharacters():
+    resp = requests.get("http://api.got.show/api/show/characters")
+    resp = resp.json()
+    return resp
+
 def getCharacters(house):
     resp = requests.get("https://api.got.show/api/show/characters/byHouse/"+house.replace(" ", "%20"))
     resp = resp.json()

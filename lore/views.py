@@ -2,29 +2,36 @@ from django.shortcuts import render
 from django.views.defaults import page_not_found
 import requests
 import json
-from . import apiHandler as api
+
+from lore.models import House, Allegiance, Character, Sibling, Relationship
 
 def index(request):
-    houses = api.getAllHouses()
+    houses = House.objects.all()
     return render(request, 'lore/cover.html', {
         "houses": houses
     })
 
 def house(request, name):
-    house = api.getHouse(name)
-    if (house == None):
+    try:
+        house = House.objects.get(name=name)
+    except House.DoesNotExist:
         return handler404(request, None)
-    characters = api.getCharacters(name)
+    characters = house.characters_in_house.all()
     return render(request, 'lore/house.html', {
         "house": house,
-        "characters": characters
+        "characters": characters,
+        "allegiance": house.allegiance.all()
     })
 
 def character(request, name):
-    character = api.getCharacterByName(name)
-    if character == None: return handler404(request, None)
+    try:
+        character = Character.objects.get(name=name)
+    except Character.DoesNotExist:
+        return handler404(request, None)
     return render(request, 'lore/character.html', {
-        "character": character
+        "character": character,
+        "siblings": character._siblings.all(),
+        "related": character.related_to.all()
     })
 
 def handler404(request, exception):

@@ -22,28 +22,19 @@
             <h4>Mother: unknown</h4>
         {% endif %}
 
-        {% if character.siblings %}
+        {% if siblings %}
             <h4>Siblings:</h4>
             <ul>
-            {% for s in character.siblings %}
+            {% for s in siblings %}
                 <li><a href="/lore/character/{{ s }}">{{ s }}</a></li>
             {% endfor %}
             </ul>
         {% endif %}
 
-        {% if character.lovers %}
-            <h4>Lovers:</h4>
-            <ul>
-                {% for lover in character.lovers %}
-                    <li><a href="/lore/character/{{ lover }}">{{ lover }}</a></li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-
-        {% if character.related %}
+        {% if related %}
             <h4>Related characters:</h4>
             <ul>
-                {% for r in character.related %}
+                {% for r in related %}
                     <li><a href="/lore/character/{{ r.name }}">{{ r.name }}</a></li>
                 {% endfor %}
             </ul>
