@@ -1,0 +1,8 @@
+header {
+    background: green;
+    display: flex;
+}
+
+.post-container {
+    background-color: gray;
+}
