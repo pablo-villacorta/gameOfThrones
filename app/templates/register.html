@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Register page</h1>
+    <h1>Register</h1>
     <form action="/register/" method="POST">
         {% csrf_token %}
-        {{ form }}
+        {{ form.username.label_tag }}<br><br>
+        {{ form.username }}<br><br>
+        {{ form.password.label_tag }}<br><br>
+        {{ form.password }}<br><br>
+        {{ form.repassword.label_tag }}<br><br>
+        {{ form.repassword }}<br><br>
+        
         <input type="submit" value="Register" />
     </form>
     <p>Already have a member? <a href="/login/">Log in</a></p>

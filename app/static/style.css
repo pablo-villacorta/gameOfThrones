@@ -36,11 +36,18 @@ header a {
 }
 
 .post {
-    background-color: gray;
+    background-color: #9dbacf;
+    color: black;
     border-radius: 15px;
-    padding: 5px;
-    margin: 10px;
+    padding: 10px;
+    margin-right: 2%;
+    margin-bottom: 15px;
     margin-top: 15px;
+}
+
+.post-position {
+    text-align: right;
+    font-weight: bold;
 }
 
 a:link, a:visited {
@@ -59,4 +66,32 @@ a:link, a:visited {
 
 #threads-table th {
     text-align: left;
+}
+
+#house-content {
+    display: flex;
+    padding-bottom: 15px;
+}
+
+#house-center-div, #house-right-div {
+    margin-left: 15%;
+    width: 15%;
+}
+
+#house-left-div {
+    text-align: center;
+}
+
+#character-content {
+    display: flex;
+    padding-bottom: 15px;
+}
+
+#character-center-div, #house-right-div {
+    margin-left: 5%;
+    width: 25%;
+}
+
+#character-left-div img {
+    border-radius: 15px;
 }

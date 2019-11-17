@@ -3,8 +3,15 @@
 {% block content %}
     <form method="POST" action="/forum/newthread/">
         {% csrf_token %}
-        {{ thread_form }}
-        {{ post_form }}
+        <br>
+        {{ thread_form.title.label_tag }}<br><br>
+        {{ thread_form.title }}<br><br>
+        {{ thread_form.description.label_tag }}<br><br>
+        {{ thread_form.description }}<br><br>
+        
+        {{ post_form.content.label_tag }}<br><br>
+        {{ post_form.content }}<br><br>
+        
         <input type="submit" value="Submit"/>
     </form>
 {% endblock %}

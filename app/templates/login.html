@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Login page</h1>
+    <h1>Log in</h1>
     <form action="/login/" method="POST">
         {% csrf_token %}
-        {{ form }}
+        {{ form.username.label_tag }}<br><br>
+        {{ form.username }}<br><br>
+        {{ form.password.label_tag }}<br><br>
+        {{ form.password }}<br><br>
         <input type="submit" value="Login" />
     </form>
     <p>New here? <a href="/register/">Create an account</a></p>

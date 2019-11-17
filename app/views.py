@@ -161,7 +161,8 @@ def newThread(request):
             "thread_form": ThreadForm(),
             "post_form": PostForm()
         })
-    def quiz(request):
+
+def quiz(request):
         return render(request, "quiz.html")
         
 class ThreadListView(generic.ListView):

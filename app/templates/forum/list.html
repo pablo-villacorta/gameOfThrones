@@ -1,15 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Forum threads</h2>
+    <h1>Welcome to the forum page!</h1>
+    <h2>Threads</h2>
     <button onclick="location.href='/forum/newthread/'">New thread</button>
-    <!--<ul>
-        {% for t in threads %}
-            <li>
-                <a href="thread/{{ t.pk }}">{{ t.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>-->
     <table id="threads-table">
         <tr>
             <th>Title</th>
@@ -18,7 +12,7 @@
         </tr>   
         {% for t in threads %}
             <tr>
-                <td>{{ t.title }}</td>
+                <td><a href="thread/{{ t.pk }}">{{ t.title }}</a></td>
                 <td>{{ t.description }}</td>
                 <td>{{ t.originalPost.date }}</td>
             </tr>

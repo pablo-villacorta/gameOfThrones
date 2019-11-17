@@ -8,6 +8,7 @@ class Character(models.Model):
     siblings = models.ManyToManyField('self', symmetrical=False, related_name='_siblings', through='Sibling')
     image = models.CharField(max_length=500, default='')
     house = models.ForeignKey('House', on_delete=models.SET_NULL, null=True, blank=True, related_name='characters_in_house')
+    actor = models.CharField(max_length=250, default='')
 
     def __str__(self):
         return self.name
@@ -48,3 +49,12 @@ class Thread(models.Model):
     description = models.TextField()
     originalPost = models.ForeignKey(Post, models.DO_NOTHING, null=True, blank=True, related_name='op')
     
+class Episode(models.Model):
+    title = models.CharField(max_length=200)
+    duration = models.IntegerField()
+    directedBy = models.CharField(max_length=250)
+    season = models.IntegerField()
+
+class Appearance(models.Model):
+    episode = models.ForeignKey(Episode, models.DO_NOTHING, related_name='episode_appearance')
+    character = models.ForeignKey(Character, models.DO_NOTHING, related_name='appearances')
