@@ -3,11 +3,25 @@
 {% block content %}
     <h2>Forum threads</h2>
     <button onclick="location.href='/forum/newthread/'">New thread</button>
-    <ul>
+    <!--<ul>
         {% for t in threads %}
             <li>
                 <a href="thread/{{ t.pk }}">{{ t.title }}</a>
             </li>
         {% endfor %}
-    </ul>
+    </ul>-->
+    <table id="threads-table">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Last post</th>
+        </tr>   
+        {% for t in threads %}
+            <tr>
+                <td>{{ t.title }}</td>
+                <td>{{ t.description }}</td>
+                <td>{{ t.originalPost.date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

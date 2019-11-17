@@ -5,7 +5,6 @@
     <form action="/login/" method="POST">
         {% csrf_token %}
         {{ form }}
-        <input type="text" name="next" value="{{ request.path }}"/>
         <input type="submit" value="Login" />
     </form>
     <p>New here? <a href="/register/">Create an account</a></p>

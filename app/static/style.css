@@ -1,8 +1,62 @@
-header {
-    background: green;
-    display: flex;
+body {
+    background-color: #12130F;
+    color: white;
+    font-family: "Courgette", cursive;
+    padding: 5px;
 }
 
-.post-container {
+header {
+    background: #5B2E48;
+    display: flex;
+    border-radius: 15px;
+}
+
+header a {
+    margin-top: 2.5%;
+    margin-left: 2%;
+}
+
+#logged-in-indicator {
+    right: 5%;
+    margin-top: 2.5%;
+    position: absolute;
+}
+
+#lore-link {
+    margin-left: 5%;
+}
+
+.main-container {
+    background-color: #585563;
+    border-radius: 15px;
+    padding-left: 2%;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+}
+
+.post {
     background-color: gray;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 10px;
+    margin-top: 15px;
+}
+
+a:link, a:visited {
+    color: white;
+}
+
+#logo {
+    margin-left: 2%;
+}
+
+#threads-table {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#threads-table th {
+    text-align: left;
 }

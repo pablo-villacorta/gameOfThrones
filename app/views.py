@@ -165,7 +165,7 @@ def newThread(request):
 class ThreadListView(generic.ListView):
     model = Thread
     context_object_name = 'threads'
-    #queryset = Book.objects.all()
+    queryset = Thread.objects.all().order_by('-originalPost__date')
     template_name = 'forum/list.html'
 
 class PostListView(generic.ListView):
@@ -175,7 +175,7 @@ class PostListView(generic.ListView):
 
     def get_queryset(self):
         thread = Thread.objects.get(pk=self.kwargs["id"])
-        return thread.thread_posts
+        return thread.thread_posts.all().order_by('-date')
     
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
