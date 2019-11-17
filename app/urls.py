@@ -11,5 +11,6 @@ urlpatterns = [
     path('forum/', views.ThreadListView.as_view(), name='threads'),
     path('forum/thread/<int:id>', views.PostListView.as_view(), name='thread'),
     path('forum/thread/<int:id>/new', views.newPost, name='new_post'),
-    path('forum/newthread/', views.newThread, name='new_thread')
+    path('forum/newthread/', views.newThread, name='new_thread'),
+    path('quiz', views.quiz, name="quiz"),
 ]

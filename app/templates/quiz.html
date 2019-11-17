@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block content %}
+<form id="form1">
+
+    <h2>1. What do you think of money?</h2>
+    <label for="qa"><input type="radio" name="na" value="1" id="qa" />Money is not important to happiness.</label><BR>
+    <label for="qb"><input type="radio" name="na" value="2" id="qb" />It's nice to have money. Money can help.</label><BR>
+    <label for="qc"><input type="radio" name="na" value="3" id="qc" />I love money, it gives me security and lets me have nice things.</label><BR>
+    <label for="qd"><input type="radio" name="na" value="4" id="qd"/>I believe money is the most important thing.</label><BR>
+
+    <h2>2. What strategy would you use to rule the world?</h2>
+    <label for="qe"><input type="radio" name="nb" value="1" id="qe"/>Quite simply, if you don't follow me, I will publibly torture you to death.</label><BR>
+    <label for="qf"><input type="radio" name="nb" value="2" id="qf"/>I would mate with a witch or warlock in the hope that black magic and our evil offspring would bring me great power.</label><BR>
+    <label for="qg"><input type="radio" name="nb" value="3" id="qg" />I'd help the people I liked, and betray the ones who challenged me.</label><BR>
+    <label for="qh"><input type="radio" name="nb" value="4" id="qh" />I would empower all the opressed people of the world in the hope that they would be greatful and support me.</label><BR>
+    
+    <h2>3. How far would you go to honor your family?.</h2>
+    <label for="qi"><input type="radio" name="nc" value="1" id="qi" />I hate my family. I'd marry a stranger and abandon my name.</label><BR>
+    <label for="qj"><input type="radio" name="nc" value="2" id="qj" />I don't hate my family but I won't sacrifice myself for the family.</label><BR>
+    <label for="qk"><input type="radio" name="nc" value="3" id="qk" />I could give up a lot for my family, but not my life.</label><BR>
+    <label for="ql"><input type="radio" name="nc" value="4" id="ql" />Anything at all.</label><BR>
+    
+    <h2>4. If you could live anywhere in the world, where would it be?</h2>
+    <label for="qm"><input type="radio" name="nd" value="1" id="qm" />A huge estate in the Italian countryside sounds nice.</label><BR>
+    <label for="qn"><input type="radio" name="nd" value="2" id="qn" />A casino hotel penthouse in Vegas.</label><BR>
+    <label for="qo"><input type="radio" name="nd" value="3" id="qo" />A rustic villa high atop a glorious mountain with a view for miles.</label><BR>
+    <label for="qp"><input type="radio" name="nd"  value="4" id="qp" />A cottage in a beautiful seaside town.</label><BR>
+   
+    <h2>5. Which of the following is your favourite movie?</h2>
+    <label for="qq"><input type="radio" name="ne" value="1" id="qq" />The Lord of the Rings.</label><BR>
+    <label for="qr"><input type="radio" name="ne" value="2" id="qr" />Forrest Gumpl.</label><BR>
+    <label for="qs"><input type="radio" name="ne" value="3" id="qs" />Harry Potter</label><BR>
+    <label for="qt"><input type="radio" name="ne" value="4" id="qt"/>How to Train your Dragon.</label><BR>
+    
+    <h2>6. Who is your favourite historical leader?</h2>
+    <label for="qu"><input type="radio" name="nf" value="1" id="qu"/>Genghis Khan.</label><BR>
+    <label for="qv"><input type="radio" name="nf" value="2" id="qv"/>Boudica.</label><BR>
+    <label for="qv"><input type="radio" name="nf" value="3" id="qv" />Catherine the Great</label><BR>
+    <label for="qw"><input type="radio" name="nf" value="4" id="qw" />Napoleon</label><BR>
+        
+    
+    <h2>7. Which one of these countries would you prefer to rule?</h2>
+    <label for="qx"><input type="radio" name="ng" value="1" id="qx" />Lichestein.</label><BR>
+    <label for="qy"><input type="radio" name="ng" value="2" id="qy" />Cuba.</label><BR>
+    <label for="qz"><input type="radio" name="ng" value="3" id="qz" />India.</label><BR>
+    <label for="q0"><input type="radio" name="ng" value="4" id="q0" />USA.</label><BR>
+        
+    
+    <h2>8. Who would you trust most??</h2>
+    <label for="q1"><input type="radio" name="nh" value="1" id="q1" />Nobody.</label><BR>
+    <label for="q2"><input type="radio" name="nh" value="2" id="q2" />My best friend at school.</label><BR>
+    <label for="q3"><input type="radio" name="nh" value="3" id="q3" />A person with a lot of friends.</label><BR>
+    <label for="q4"><input type="radio" name="nh"  value="4" id="q4" />My parents.</label><BR>
+    
+    <BR><BR><BR>
+    <button type="submit" value="Submit">Submit</button>
+    
+    </form>
+    <BR>
+    <p>Your grade is: <span id="grade">_</span></p>
+    <p id="grade2"></p>
+
+    <script>
+        document.getElementById("form1").onsubmit=function() {
+               one = parseInt(document.querySelector('input[name = "na"]:checked').value);
+               two = parseInt(document.querySelector('input[name = "nb"]:checked').value);
+               three = parseInt(document.querySelector('input[name = "nc"]:checked').value);
+               four = parseInt(document.querySelector('input[name = "nd"]:checked').value);
+               five = parseInt(document.querySelector('input[name = "ne"]:checked').value);
+               six = parseInt(document.querySelector('input[name = "nf"]:checked').value);
+               seven = parseInt(document.querySelector('input[name = "ng"]:checked').value);
+               eight = parseInt(document.querySelector('input[name = "nh"]:checked').value);
+               
+               result = one + two + three + four + five + six + seven + eight;
+               
+            document.getElementById("grade").innerHTML = result;
+               
+        
+        if(result < 7) {result2 = "You are a Stark."};
+        if(result >= 7 && result < 14) {result2 = "You are a Targaryen."};
+        if(result >= 14 && result < 21) {result2 = "You are a Lannister."};
+        if(result >= 21 && result < 28) {result2 = "You are a Tyrell."};
+        if(result >= 28 && result < 35) {result2 = "You are a Baratheon"};
+        if(result >= 35 && result < 42) {result2 = "You are a Mormont"};
+        if(result >= 42 && result < 49) {result2 = "You are a Martell"};
+        if(result >= 49 && result < 56) {result2 = "You are a Greyjoy"};
+        if(result >= 56 && result < 63) {result2 = "You are an Arryn"};
+        if(result >= 63 && result < 70) {result2 = "You are a Tully"};
+        if(result >= 76) {result2 = "You are a Bolton"};
+document.getElementById("grade2").innerHTML = result2; 
+        
+        return false; // required to not refresh the page; just leave this here
+        } //this ends the submit function
+        
+        </script>
+        
+        
+{% endblock %}
