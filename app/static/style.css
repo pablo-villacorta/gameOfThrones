@@ -36,7 +36,7 @@ header a {
 }
 
 .post {
-    background-color: #9dbacf;
+    background-color: #DDC8C4;
     color: black;
     border-radius: 15px;
     padding: 10px;
@@ -116,4 +116,29 @@ a:link, a:visited {
 
 #lore-cover-season {
     margin-left: 5%;
+}
+
+button, .button, input[type=submit] {
+    background-color: #8D909B;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+}
+
+input[type=text], input[type=password] {
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+textarea {
+    border-radius: 5px;
+    border: none;
+    width: 35%;
+}
+
+button:hover, .button:hover, input[type=submit]:hover {
+    cursor: pointer;
+    background-color: #676971;
 }

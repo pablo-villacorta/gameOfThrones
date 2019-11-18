@@ -1,0 +1,50 @@
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  width: 33.33%;
+  padding: 10px;
+  height: 200px; 
+}
+
+#a {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+#c {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+} 
+
+.column:hover {
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  padding: 5%;
+}
+</style>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome!</h1>
+<h3>Pick an option:</h3>
+<div class="row">
+  <div class="column" id="a" style="background-color:#aaa;" onclick="location.href='lore/'">
+    <h1>Lore</h1>
+  </div>
+  <div class="column" id="b" style="background-color:#bbb;" onclick="location.href='forum/'">
+    <h1>Forum</h1>
+  </div>
+  <div class="column" id="c" style="background-color:#ccc;" onclick="location.href='quiz'">
+    <h1>Quiz</h1>
+  </div>
+</div>
+
+
+{% endblock %}

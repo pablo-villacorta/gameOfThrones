@@ -47,7 +47,7 @@ class Post(models.Model):
 class Thread(models.Model):
     title = models.CharField(max_length=500)
     description = models.TextField()
-    originalPost = models.ForeignKey(Post, models.DO_NOTHING, null=True, blank=True, related_name='op')
+    originalPost = models.ForeignKey(Post, on_delete=models.SET_NULL, null=True, blank=True, related_name='op')
     
 class Episode(models.Model):
     title = models.CharField(max_length=200)

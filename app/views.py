@@ -180,6 +180,9 @@ def season(request, id):
         "seasonNumber": id
     })
 
+def home(request):
+    return render(request, 'home.html', {})
+
 class ThreadListView(generic.ListView):
     model = Thread
     context_object_name = 'threads'
