@@ -4,7 +4,7 @@
     <h2>{{ thread.title }}</h2>
     <h4>{{ thread.description }}</h4>
     <button onclick="location.href='/forum/thread/{{ thread.pk }}/new'">New post</button>
-    <div>
+    <div class="thread-container">
         {% for p in posts %}
             <div class="post">
                 <p class="post-date"><b>Date:</b> {{ p.date }}</p>

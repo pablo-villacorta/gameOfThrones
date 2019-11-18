@@ -7,8 +7,6 @@ from django.utils import timezone
 
 from django.views import generic
 
-from . import apiHandler as api
-
 from app.forms import RegisterForm, LoginForm, PostForm, ThreadForm
 from app.models import House, Allegiance, Character, Sibling, Relationship, User, Thread, Post, Episode, Appearance
 
@@ -62,7 +60,7 @@ def login(request):
                         "form": form
                     })
             except User.DoesNotExist:
-                raise forms.ValidationError("Username does not exist")
+                return redirect('/login')
     else:
         # GET o cualquier otro
         form = LoginForm()
@@ -79,11 +77,14 @@ def register(request):
         if filledForm.is_valid():
             username = filledForm.cleaned_data['username']
             password = filledForm.cleaned_data['password']
+            repassword = filledForm.cleaned_data['repassword']
+            if not password == repassword:
+                return redirect('/register')
             # chequear bd
             try:
                 User.objects.get(username=username)
                 # username ya cogido -> debe cambiar
-                raise forms.ValidationError("Username already in use")
+                return redirect('/register')
             except User.DoesNotExist:
                 user = User()
                 user.username = username
@@ -149,7 +150,7 @@ def newThread(request):
             post.content = post_form.cleaned_data["content"]
             post.date = timezone.now()
             post.user = User.objects.get(username=request.session["username"])
-            post.positionInThread = 1
+            post.positionInThread = 0
             post.thread = thread
             post.save()
             thread.originalPost = post
@@ -166,7 +167,10 @@ def quiz(request):
     return render(request, "quiz.html")
         
 def episode(request, id):
-    ep = Episode.objects.get(pk=id)
+    try:
+        ep = Episode.objects.get(pk=id)
+    except Episode.DoesNotExist:
+        return handler404(request, None)
     rand = ep.episode_appearance.all().order_by('?').first().character.image
     return render(request, 'lore/episode.html', {
         "episode": ep,
@@ -174,6 +178,8 @@ def episode(request, id):
     })
 
 def season(request, id):
+    if id > 7:
+        return handler404(request, None)
     eps = Episode.objects.filter(season=id)
     return render(request, 'lore/season.html', {
         "episodes": eps,

@@ -80,6 +80,7 @@ a:link, a:visited {
 
 #house-left-div {
     text-align: center;
+    max-width: 25%;
 }
 
 #character-content {
@@ -141,4 +142,8 @@ textarea {
 button:hover, .button:hover, input[type=submit]:hover {
     cursor: pointer;
     background-color: #676971;
+}
+
+.thread-container {
+    padding-bottom: 15px; 
 }
