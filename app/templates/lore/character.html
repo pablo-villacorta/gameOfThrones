@@ -4,7 +4,7 @@
     <div id="character-content">
         <div id="character-left-div">
             <h2>{{ character.name }}</h2>
-            <img src="{{ character.image }}" width="75%">
+            <img src="{{ character.image }}" alt="Character image" width="225">
         </div>
         <div id="character-center-div">
             {% if character.house %}
@@ -14,13 +14,13 @@
             {% endif %}
 
             {% if character.father %}
-                <h4>Father: <a href="/lore/character/{{ character.father }}">{{ character.father }}</a></h4>
+                <h4>Father: <a href="/lore/character/{{ character.father.pk }}">{{ character.father }}</a></h4>
             {% else %}
                 <h4>Father: unknown</h4>
             {% endif %}
             
             {% if character.mother %}
-                <h4>Mother: <a href="/lore/character/{{ character.mother }}">{{ character.mother }}</a></h4>
+                <h4>Mother: <a href="/lore/character/{{ character.mother.pk }}">{{ character.mother }}</a></h4>
             {% else %}
                 <h4>Mother: unknown</h4>
             {% endif %}
@@ -29,7 +29,7 @@
                 <h4>Siblings:</h4>
                 <ul>
                 {% for s in siblings %}
-                    <li><a href="/lore/character/{{ s }}">{{ s }}</a></li>
+                    <li><a href="/lore/character/{{ s.pk }}">{{ s }}</a></li>
                 {% endfor %}
                 </ul>
             {% endif %}
@@ -39,7 +39,7 @@
                 <h4>Related characters:</h4>
                 <ul>
                     {% for r in related %}
-                        <li><a href="/lore/character/{{ r.name }}">{{ r.name }}</a></li>
+                        <li><a href="/lore/character/{{ r.pk }}">{{ r.name }}</a></li>
                     {% endfor %}
                 </ul>
             {% endif %}

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="newPost-container">
     <h3>New post for thread: <i>{{ thread.title }}</i></h3>
     <form method="POST" action="/forum/thread/{{ thread.pk }}/new">
         {% csrf_token %}
@@ -8,4 +9,5 @@
         {{ form.content }}<br><br>
         <input type="submit" value="Submit" />
     </form>
+</div>
 {% endblock %}

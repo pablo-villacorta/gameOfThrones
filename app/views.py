@@ -16,9 +16,9 @@ def index(request):
         "houses": houses
     })
 
-def house(request, name):
+def house(request, id):
     try:
-        house = House.objects.get(name=name)
+        house = House.objects.get(pk=id)
     except House.DoesNotExist:
         return handler404(request, None)
     characters = house.characters_in_house.all()
@@ -28,9 +28,9 @@ def house(request, name):
         "allegiance": house.allegiance.all()
     })
 
-def character(request, name):
+def character(request, id):
     try:
-        character = Character.objects.get(name=name)
+        character = Character.objects.get(pk=id)
     except Character.DoesNotExist:
         return handler404(request, None)
     return render(request, 'lore/character.html', {

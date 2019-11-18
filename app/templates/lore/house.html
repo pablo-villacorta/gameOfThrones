@@ -5,13 +5,13 @@
         <div id="house-left-div">
             <h2>{{ house.name }}</h2>
             <h3>{{ house.words }}</h3>
-            <img src="{{ house.logoURL }}" width="200" height="auto">
+            <img src="{{ house.logoURL }}" alt="House logo" width="200">
         </div>
         <div id="house-center-div">
             <h4>Related characters:</h4>
             <ul>
             {% for c in characters %}
-                <li><a href="/lore/character/{{ c.name }}">{{ c.name }}</a></li>
+                <li><a href="/lore/character/{{ c.pk }}">{{ c.name }}</a></li>
             {% endfor %}
             </ul>
         </div>
@@ -19,7 +19,7 @@
             <h4>Allegiances:</h4>
             <ul>
             {% for a in allegiance %}
-                <li><a href="/lore/house/{{a}}">{{ a }}</a></li>
+                <li><a href="/lore/house/{{a.pk}}">{{ a }}</a></li>
             {% endfor %}
             </ul>
         </div>

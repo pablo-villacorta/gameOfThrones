@@ -4,10 +4,10 @@
     <div id="episode-content">
         <div id="episode-left-div">
             <h2>{{ episode.title }} ({{ episode.season }}x{{ episode.numberInSeason }})</h2>
-            <img src="{{ image }}" width="75%"/>
+            <img src="{{ image }}" width="225" alt="Random character form the episode"/>
         </div>
         <div id="episode-center-div">
-            <h4>Season: {{ episode.season }}</h4>
+            <h4>Season: <a href="/lore/season/{{episode.season}}">{{ episode.season }}</a></h4>
             <h4>Duration: {{ episode.duration }}'</h4>
             <h4>Directed by: {{ episode.directedBy }}</h4>
         </div>
@@ -15,7 +15,7 @@
             <h4>Characters:</h4>
                 <ul>
                     {% for a in episode.episode_appearance.distinct %}
-                        <li><a href="/lore/character/{{ a.character.name }}/">{{a.character.name}}</a></li>
+                        <li><a href="/lore/character/{{ a.character.pk }}/">{{a.character.name}}</a></li>
                     {% endfor %}
                 </ul>
         </div>

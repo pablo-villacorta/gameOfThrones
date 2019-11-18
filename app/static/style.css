@@ -90,6 +90,7 @@ a:link, a:visited {
 
 #character-center-div, #character-right-div, #character-appearances-div {
     width: 23%;
+    margin-left: 2%;
 }
 
 #character-left-div img {
@@ -146,4 +147,33 @@ button:hover, .button:hover, input[type=submit]:hover {
 
 .thread-container {
     padding-bottom: 15px; 
+}
+
+.newPost-container {
+    padding-bottom: 15px;
+}
+
+.column {
+    width: 33.33%;
+    padding: 10px;
+    height: 190px; 
+  }
+  
+#a {
+border-top-left-radius: 15px;
+border-bottom-left-radius: 15px;
+}
+
+#c {
+border-top-right-radius: 15px;
+border-bottom-right-radius: 15px;
+} 
+
+.column:hover {
+cursor: pointer;
+}
+
+.row {
+display: flex;
+padding: 5%;
 }
