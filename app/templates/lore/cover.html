@@ -2,10 +2,26 @@
 
 {% block content %}
     <h1>Welcome to the lore page!</h1>
-    <h3>Pick a house:</h3>
-    <ul>
-        {% for h in houses %}
-            <li><a href="/lore/house/{{h.name}}">{{ h.name }}</a></li>
-        {% endfor %}
-    </ul>
+    <div id="lore-cover-content">
+        <div id="lore-cover-house">
+            <h3>Pick a house:</h3>
+            <ul>
+                {% for h in houses %}
+                    <li><a href="/lore/house/{{h.name}}">{{ h.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div id="lore-cover-season">
+            <h3>Pick a season:</h3>
+            <ul>
+                <li><a href="/lore/season/1">Season 1</a></li>
+                <li><a href="/lore/season/2">Season 2</a></li>
+                <li><a href="/lore/season/3">Season 3</a></li>
+                <li><a href="/lore/season/4">Season 4</a></li>
+                <li><a href="/lore/season/5">Season 5</a></li>
+                <li><a href="/lore/season/6">Season 6</a></li>
+                <li><a href="/lore/season/7">Season 7</a></li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

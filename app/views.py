@@ -10,7 +10,7 @@ from django.views import generic
 from . import apiHandler as api
 
 from app.forms import RegisterForm, LoginForm, PostForm, ThreadForm
-from app.models import House, Allegiance, Character, Sibling, Relationship, User, Thread, Post
+from app.models import House, Allegiance, Character, Sibling, Relationship, User, Thread, Post, Episode, Appearance
 
 def index(request):
     houses = House.objects.all()
@@ -163,8 +163,23 @@ def newThread(request):
         })
 
 def quiz(request):
-        return render(request, "quiz.html")
+    return render(request, "quiz.html")
         
+def episode(request, id):
+    ep = Episode.objects.get(pk=id)
+    rand = ep.episode_appearance.all().order_by('?').first().character.image
+    return render(request, 'lore/episode.html', {
+        "episode": ep,
+        "image": rand
+    })
+
+def season(request, id):
+    eps = Episode.objects.filter(season=id)
+    return render(request, 'lore/season.html', {
+        "episodes": eps,
+        "seasonNumber": id
+    })
+
 class ThreadListView(generic.ListView):
     model = Thread
     context_object_name = 'threads'

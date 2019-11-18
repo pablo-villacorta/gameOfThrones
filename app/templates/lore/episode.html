@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="episode-content">
+        <div id="episode-left-div">
+            <h2>{{ episode.title }} ({{ episode.season }}x{{ episode.numberInSeason }})</h2>
+            <img src="{{ image }}" width="75%"/>
+        </div>
+        <div id="episode-center-div">
+            <h4>Season: {{ episode.season }}</h4>
+            <h4>Duration: {{ episode.duration }}'</h4>
+            <h4>Directed by: {{ episode.directedBy }}</h4>
+        </div>
+        <div id="episode-right-div">
+            <h4>Characters:</h4>
+                <ul>
+                    {% for a in episode.episode_appearance.distinct %}
+                        <li><a href="/lore/character/{{ a.character.name }}/">{{a.character.name}}</a></li>
+                    {% endfor %}
+                </ul>
+        </div>
+    </div>
+{% endblock %}

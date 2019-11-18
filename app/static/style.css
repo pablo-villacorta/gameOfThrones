@@ -87,11 +87,33 @@ a:link, a:visited {
     padding-bottom: 15px;
 }
 
-#character-center-div, #house-right-div {
-    margin-left: 5%;
-    width: 25%;
+#character-center-div, #character-right-div, #character-appearances-div {
+    width: 23%;
 }
 
 #character-left-div img {
     border-radius: 15px;
+}
+
+#episode-content {
+    display: flex;
+    padding-bottom: 15px;
+}
+
+#episode-center-div, #episode-right-div {
+    width: 25%;
+    margin-left: 5%;
+}
+
+#episode-left-div img {
+    border-radius: 15px;
+}
+
+#lore-cover-content {
+    display: flex;
+    padding-bottom: 15px;
+}
+
+#lore-cover-season {
+    margin-left: 5%;
 }

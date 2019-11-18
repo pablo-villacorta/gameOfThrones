@@ -51,6 +51,7 @@ class Thread(models.Model):
     
 class Episode(models.Model):
     title = models.CharField(max_length=200)
+    numberInSeason = models.IntegerField()
     duration = models.IntegerField()
     directedBy = models.CharField(max_length=250)
     season = models.IntegerField()

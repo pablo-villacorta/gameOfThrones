@@ -30,3 +30,8 @@ def getCharacterByName(name):
     if (not resp.ok): return None
     resp = resp.json()
     return resp
+
+def getAllEpisodes():
+    resp = requests.get("https://api.got.show/api/show/episodes")
+    resp = resp.json()
+    return resp

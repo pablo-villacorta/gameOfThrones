@@ -44,5 +44,13 @@
                 </ul>
             {% endif %}
         </div>
+        <div id="character-appearances-div">
+            <h4>Appearances:</h4>
+            <ul>
+            {% for ep in character.appearances.all %}
+                <li><a href="/lore/episode/{{ ep.episode.pk }}">{{ ep.episode.title }}</a> (<a href="/lore/season/{{ ep.episode.season }}">season {{ ep.episode.season }}</a>)</li>
+            {% endfor %}
+            </ul>
+        </div>
     </div>
 {% endblock %}

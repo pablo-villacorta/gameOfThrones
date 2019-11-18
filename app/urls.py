@@ -13,4 +13,6 @@ urlpatterns = [
     path('forum/thread/<int:id>/new', views.newPost, name='new_post'),
     path('forum/newthread/', views.newThread, name='new_thread'),
     path('quiz', views.quiz, name="quiz"),
+    path('lore/episode/<int:id>', views.episode, name='episode'),
+    path('lore/season/<int:id>', views.season, name='season')
 ]
