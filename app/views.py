@@ -7,6 +7,8 @@ from django.utils import timezone
 
 from django.views import generic
 
+from . import util
+
 from app.forms import RegisterForm, LoginForm, PostForm, ThreadForm
 from app.models import House, Allegiance, Character, Sibling, Relationship, User, Thread, Post, Episode, Appearance
 
@@ -119,7 +121,7 @@ def newPost(request, id):
         if form.is_valid():
             content = form.cleaned_data["content"]
             post = Post()
-            post.content = content
+            post.content = util.createLinks(content)
             post.user = User.objects.get(username=request.session["username"])
             post.thread = Thread.objects.get(pk=id)
             post.date = timezone.now()

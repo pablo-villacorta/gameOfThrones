@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
     <h2>{{ thread.title }}</h2>
     <h4>{{ thread.description }}</h4>
     <button onclick="location.href='/forum/thread/{{ thread.pk }}/new'">New post</button>
@@ -8,10 +9,11 @@
         {% for p in posts %}
             <div class="post">
                 <p class="post-date"><b>Date:</b> {{ p.date }}</p>
-                <p class="post-content">{{ p.content }}</p>
+                <p class="post-content">{{ p.content|safe }}</p>
                 <p class="post-author"><b>Author:</b> {{ p.user.username }}</p>
                 <p class="post-position">#{{ p.positionInThread }}</p>
             </div>
         {% endfor %}
     </div>
+    <script src="{% static 'thread_slug.js' %}"></script>
 {% endblock %}

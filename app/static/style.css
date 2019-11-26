@@ -12,13 +12,13 @@ header {
 }
 
 header a {
-    margin-top: 2.5%;
+    margin-top: 2.6%;
     margin-left: 2%;
 }
 
 #logged-in-indicator {
     right: 5%;
-    margin-top: 2.5%;
+    margin-top: 2.6%;
     position: absolute;
 }
 
@@ -52,6 +52,7 @@ header a {
 
 a:link, a:visited {
     color: white;
+    text-decoration-line: underline;
 }
 
 #logo {
@@ -157,23 +158,32 @@ button:hover, .button:hover, input[type=submit]:hover {
     width: 33.33%;
     padding: 10px;
     height: 190px; 
-  }
+}
   
 #a {
-border-top-left-radius: 15px;
-border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 #c {
-border-top-right-radius: 15px;
-border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 } 
 
 .column:hover {
-cursor: pointer;
+    cursor: pointer;
 }
 
 .row {
-display: flex;
-padding: 5%;
+    display: flex;
+    padding: 5%;
+}
+
+.tooltip-content {
+    padding-bottom: 20px;
+    font-family: "Courgette", cursive;
+}
+
+input, textarea {
+    color: black !important;
 }

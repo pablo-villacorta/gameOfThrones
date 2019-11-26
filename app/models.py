@@ -9,6 +9,7 @@ class Character(models.Model):
     image = models.CharField(max_length=500, default='')
     house = models.ForeignKey('House', on_delete=models.SET_NULL, null=True, blank=True, related_name='characters_in_house')
     actor = models.CharField(max_length=250, default='')
+    slug = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
