@@ -15,11 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app import views
+from app import views, api_views
+
+from rest_framework import routers
+
+
+router = routers.DefaultRouter()
+router.register(r'characters', api_views.CharacterViewSet)
+router.register(r'houses', api_views.HouseViewSet)
+router.register(r'episodes', api_views.EpisodeViewSet)
 
 handler404 = views.handler404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
     path('', include('app.urls'))
 ]
