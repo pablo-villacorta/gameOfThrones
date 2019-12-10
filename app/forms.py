@@ -10,7 +10,7 @@ class LoginForm(forms.Form):
     password = forms.CharField(max_length=100, widget=forms.PasswordInput)
     
 class PostForm(forms.Form):
-    content = forms.CharField(label="Type your message here", widget=forms.Textarea)
+    content = forms.CharField(label="Type your message here", widget=forms.Textarea(attrs={'v-model': 'contenido'}))
 
 class ThreadForm(forms.Form):
     title = forms.CharField(label="Type in the title of the thread", max_length=200)

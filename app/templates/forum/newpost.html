@@ -1,13 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="newPost-container">
-    <h3>New post for thread: <i>{{ thread.title }}</i></h3>
-    <form method="POST" action="/forum/thread/{{ thread.pk }}/new">
-        {% csrf_token %}
-        {{ form.content.label_tag }}<br><br>
-        {{ form.content }}<br><br>
-        <input type="submit" value="Submit" />
-    </form>
+<div class="newPost-container" id="vue-newPost">
+    <div class="newPost-columna0">
+        <h3>New post for thread: <i>{{ thread.title }}</i></h3>
+        <form method="POST" action="/forum/thread/{{ thread.pk }}/new">
+            {% csrf_token %}
+            {{ form.content.label_tag }}<br><br>
+            {{ form.content }}<br><br>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+    <div class="newPost-columna1">
+        {% verbatim %}
+        <h2>Previsualización del post</h2>
+        <div class="post">
+            <p class="post-date"><b>Date:</b> {{ fecha }}</p>
+            <p class="post-content">{{ contenido }}</p>{% endverbatim %}
+            <p class="post-author"><b>Author:</b> {{ request.session.username }}</p>{% verbatim %}
+            <p class="post-position">#</p>
+        </div>
+        {% endverbatim %}
+    </div>
 </div>
+<script>
+    let newPostApp = new Vue({
+        el: "#vue-newPost",
+        data: {
+            contenido: "",
+            fecha: ""
+        }
+    });
+</script>
 {% endblock %}

@@ -152,12 +152,25 @@ button:hover, .button:hover, input[type=submit]:hover {
 
 .newPost-container {
     padding-bottom: 15px;
+    display: flex;
+}
+
+.newPost-columna0 {
+    width: 55%;
+}
+
+.newPost-columna0 * {
+    width: 100%;
 }
 
 .column {
     width: 33.33%;
     padding: 10px;
     height: 190px; 
+}
+
+.newPost-columna1 {
+    margin-left: 20px;
 }
   
 #a {
