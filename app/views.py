@@ -33,13 +33,17 @@ def house(request, id):
 def character(request, id):
     try:
         character = Character.objects.get(pk=id)
-        appearances = [[],[],[],[],[],[],[]]
+        appearances = [dict(),dict(),dict(),dict(),dict(),dict(),dict()]
+        for i in range(len(appearances)):
+            appearances[i]["numero"] = i+1
+            appearances[i]["episodios"] = []
         
         for ap in character.appearances.all():
             s = ap.episode.season
-            appearances[(s-1)].append(ap.episode)
+            appearances[(s-1)]["episodios"].append(ap.episode)
     except Character.DoesNotExist:
         return handler404(request, None)
+    print(appearances)
     return render(request, 'lore/character.html', {
         "character": character,
         "siblings": character._siblings.all(),
