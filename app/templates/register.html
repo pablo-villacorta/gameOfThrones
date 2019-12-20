@@ -1,17 +1,20 @@
-{% extends 'base.html' %}
+{% extends 'base_content.html' %}
 
 {% block content %}
-    <h1>Register</h1>
-    <form action="/register/" method="POST">
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+    <h1>{% trans 'Register'%}</h1>
+    <form action="/register_/" method="POST">
         {% csrf_token %}
-        {{ form.username.label_tag }}<br><br>
+        <label for="id_username">{% trans 'Your username'%}:</label><br><br>
         {{ form.username }}<br><br>
-        {{ form.password.label_tag }}<br><br>
+        <label for="id_password">{% trans 'Password'%}:</label><br><br>
         {{ form.password }}<br><br>
-        {{ form.repassword.label_tag }}<br><br>
+        <label for="id_repassword">{% trans 'Password (again)'%}:</label<br><br>
         {{ form.repassword }}<br><br>
-        
-        <input class="button" type="submit" value="Register" />
+        <input type="hidden" name="langCode" value="{{LANGUAGE_CODE}}">
+
+        <input class="button" type="submit" value="{% trans 'Register'%}" />
     </form><br>
-    <p>Already a member? <a href="/login/">Log in</a></p>
+    <p>{% trans 'Already a member?'%} <a href="/{{LANGUAGE_CODE}}/login/">{% trans 'Log in'%}</a></p>
 {% endblock %}

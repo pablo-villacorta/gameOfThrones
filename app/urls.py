@@ -1,8 +1,10 @@
 from django.urls import path
+from django.conf.urls import url, include
 from . import views 
 
 urlpatterns = [
     path('', views.home, name='home'),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
     path('lore/', views.index, name='cover'),
     path('lore/house/<int:id>/', views.house, name='house'),
     path('lore/character/<int:id>/', views.character, name='character'),

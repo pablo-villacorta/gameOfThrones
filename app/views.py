@@ -12,6 +12,8 @@ from . import util
 from app.forms import RegisterForm, LoginForm, PostForm, ThreadForm
 from app.models import House, Allegiance, Character, Sibling, Relationship, User, Thread, Post, Episode, Appearance
 
+from django.contrib.auth.hashers import make_password, check_password
+
 def index(request):
     houses = House.objects.all()
     return render(request, 'lore/cover.html', {
@@ -51,61 +53,65 @@ def character(request, id):
         "appearances": appearances
     })
 
+def loginPOST(request):
+    langCode = request.POST["langCode"]
+    filledForm = LoginForm(request.POST)
+    if filledForm.is_valid():
+        username = filledForm.cleaned_data["username"]
+        password = filledForm.cleaned_data["password"]
+        
+        try:
+            user = User.objects.get(username=username)
+            if check_password(password, user.password):
+                # good
+                request.session["username"] = username
+                return redirect('/'+langCode+'/lore')
+            else:
+                #bad
+                return redirect('/'+langCode+'/login/')
+        except User.DoesNotExist:
+            return redirect('/'+langCode+'/login')
+
 def login(request):
+    langCode = request.build_absolute_uri().split("/")[-3]
     if request.session.has_key('username'):
-        return redirect('/lore')
-    if request.method == 'POST':
-        filledForm = LoginForm(request.POST)
-        if filledForm.is_valid():
-            username = filledForm.cleaned_data["username"]
-            password = filledForm.cleaned_data["password"]
-            try:
-                user = User.objects.get(username=username)
-                if user.password == password:
-                    # good
-                    request.session["username"] = username
-                    return redirect('/lore')
-                else:
-                    #bad
-                    form = LoginForm()
-                    return render(request, 'login.html', {
-                        "form": form
-                    })
-            except User.DoesNotExist:
-                return redirect('/login')
-    else:
-        # GET o cualquier otro
-        form = LoginForm()
-        return render(request, 'login.html', {
-            "form": form
-        })
+        return redirect('/'+langCode+'/')
+    
+    # GET o cualquier otro
+    form = LoginForm()
+    return render(request, 'login.html', {
+        "form": form
+    })
+
+def registerPOST(request):
+    filledForm = RegisterForm(request.POST)
+    langCode = request.POST["langCode"]
+    if filledForm.is_valid():
+        username = filledForm.cleaned_data['username']
+        password = filledForm.cleaned_data['password']
+        repassword = filledForm.cleaned_data['repassword']
+        if not password == repassword:
+            return redirect('/'+langCode+'/register')
+        
+        try:
+            User.objects.get(username=username)
+            # username ya cogido -> debe cambiar
+            return redirect('/'+langCode+'/register')
+        except User.DoesNotExist:
+            user = User()
+            user.username = username
+            hashed_pwd = make_password(password)
+            user.password = hashed_pwd
+            user.save()
+            # iniciar sesión
+            request.session['username'] = username
+
+            return redirect('/'+langCode+'/')
 
 def register(request):
+    langCode = request.build_absolute_uri().split("/")[-3]
     if request.session.has_key('username'):
-        return redirect('/lore')
-    if request.method == 'POST':
-        filledForm = RegisterForm(request.POST)
-
-        if filledForm.is_valid():
-            username = filledForm.cleaned_data['username']
-            password = filledForm.cleaned_data['password']
-            repassword = filledForm.cleaned_data['repassword']
-            if not password == repassword:
-                return redirect('/register')
-            # chequear bd
-            try:
-                User.objects.get(username=username)
-                # username ya cogido -> debe cambiar
-                return redirect('/register')
-            except User.DoesNotExist:
-                user = User()
-                user.username = username
-                user.password = password
-                user.save()
-                # iniciar sesión
-                request.session['username'] = username
-
-                return redirect('/lore')
+        return redirect('/'+langCode+'/')  
 
     # GET o cualquier otro metodo
     form = RegisterForm()
@@ -114,18 +120,21 @@ def register(request):
     })
 
 def logout(request):
+    langCode = request.build_absolute_uri().split("/")[-3]
     try:
         del request.session["username"]
     except KeyError:
         pass
-    return redirect('/lore')
+    return redirect('/'+langCode+'/lore')
 
 def handler404(request, exception):
     return render(request, 'lore/404.html', status=404)
 
 def newPost(request, id):
+    langCode = request.build_absolute_uri().split("/")[-5]
+    print("hey!")
     if not request.session.has_key('username'):
-        return redirect('/login')
+        return redirect('/'+langCode+'/login')
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
@@ -137,19 +146,22 @@ def newPost(request, id):
             post.date = timezone.now()
             post.positionInThread = len(post.thread.thread_posts.all())
             post.save()
-            return redirect('/forum/thread/'+str(id))
+            print('/'+langCode+'/forum/thread/'+str(id))
+            return redirect('/'+langCode+'/forum/thread/'+str(id))
     else:
         # GET
         form = PostForm()
         thread = Thread.objects.get(pk=id)
         return render(request, "forum/newpost.html", {
             "form": form,
-            "thread": thread
+            "thread": thread,
+            "numberOfPosts": thread.thread_posts.count()
         })
 
 def newThread(request):
+    langCode = request.build_absolute_uri().split("/")[-4]
     if not request.session.has_key('username'):
-        return redirect('/login')
+        return redirect('/'+langCode+'/login')
     if request.method == 'POST':
         thread_form = ThreadForm(request.POST)
         post_form = PostForm(request.POST)
@@ -167,7 +179,7 @@ def newThread(request):
             post.save()
             thread.originalPost = post
             thread.save()
-            return redirect("/forum/thread/"+str(thread.pk))
+            return redirect("/"+langCode+"/forum/thread/"+str(thread.pk))
     else:
         # GET
         return render(request, 'forum/newthread.html', {

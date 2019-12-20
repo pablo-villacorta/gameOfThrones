@@ -1,16 +1,18 @@
-{% extends 'base.html' %}
+{% extends 'base_content.html' %}
 
 {% block content %}
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
     <h2>{{ thread.title }}</h2>
     <h4>{{ thread.description }}</h4>
-    <button onclick="location.href='/forum/thread/{{ thread.pk }}/new'">New post</button>
+    <button onclick="location.href='/{{LANGUAGE_CODE}}/forum/thread/{{ thread.pk }}/new'">{% trans 'New post'%}</button>
     <div class="thread-container">
         {% for p in posts %}
             <div class="post">
-                <p class="post-date"><b>Date:</b> {{ p.date }}</p>
+                <p class="post-date"><b>{% trans 'Date'%}:</b> {{ p.date|date:'d/m/Y' }} {{ p.date|time:'h:i' }}</p>
                 <p class="post-content">{{ p.content|safe }}</p>
-                <p class="post-author"><b>Author:</b> {{ p.user.username }}</p>
+                <p class="post-author"><b>{% trans 'Author'%}:</b> {{ p.user.username }}</p>
                 <p class="post-position">#{{ p.positionInThread }}</p>
             </div>
         {% endfor %}

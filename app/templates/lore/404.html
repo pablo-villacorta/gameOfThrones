@@ -1,5 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'base_content.html' %}
 
 {% block content %}
-<h3>Oops... we don't have the page you're looking for :(</h3>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<h3>{% blocktrans %}Oops... we don't have the page you're looking for{% endblocktrans %} :(</h3>
 {% endblock %}

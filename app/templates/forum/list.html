@@ -1,21 +1,45 @@
-{% extends 'base.html' %}
+{% extends 'base_cover.html' %}
 
 {% block content %}
-    <h1>Welcome to the forum page!</h1>
-    <h2>Threads</h2>
-    <button onclick="location.href='/forum/newthread/'">New thread</button>
-    <table id="threads-table">
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Last post</th>
-        </tr>   
-        {% for t in threads %}
-            <tr>
-                <td><a href="thread/{{ t.pk }}">{{ t.title }}</a></td>
-                <td>{{ t.description }}</td>
-                <td>{{ t.originalPost.date }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<section id="hello" class="blog-banner bg-mega">
+    <div class="overlay forum-overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="main_home text-center">
+                <div class="about_text">
+                    <h1 class="text-black text-uppercase">{% trans 'The forum'%}</h1>
+                </div>
+            </div>
+        </div><!--End off row-->
+    </div><!--End off container -->
+</section> <!--End off Home Sections-->
+
+
+
+<section id="blog_fashion" class="blog_fashion roomy-100">
+    <div class="container">
+        <div class="row">
+            <div class="main_blog_fashion">
+                <h2>{% trans 'Threads'%}</h2>
+                <button onclick="location.href='/{{LANGUAGE_CODE}}/forum/newthread/'">{% trans 'New thread'%}</button>
+                <table id="threads-table">
+                    <tr>
+                        <th>{% trans 'Title'%}</th>
+                        <th>{% trans 'Description'%}</th>
+                        <th>{% trans 'Last post'%}</th>
+                    </tr>   
+                    {% for t in threads %}
+                        <tr>
+                            <td><a href="thread/{{ t.pk }}">{{ t.title }}</a></td>
+                            <td>{{ t.description }}</td>
+                            <td>{{ t.originalPost.date }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

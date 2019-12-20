@@ -1,58 +1,93 @@
-{% extends 'base.html' %}
+{% extends 'base_content.html' %}
 
 {% block content %}
-    <div id="character-content">
-        <div id="character-left-div">
-            <h2>{{ character.name }}</h2>
-            <img src="{{ character.image }}" alt="Character image" width="225">
-        </div>
-        <div id="character-center-div">
-            {% if character.house %}
-                <h4>House: {{ character.house }}</h4>
-            {% else %}
-                <h4>House: none</h4>
-            {% endif %}
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
-            {% if character.father %}
-                <h4>Father: <a href="/lore/character/{{ character.father.pk }}">{{ character.father }}</a></h4>
-            {% else %}
-                <h4>Father: unknown</h4>
-            {% endif %}
-            
-            {% if character.mother %}
-                <h4>Mother: <a href="/lore/character/{{ character.mother.pk }}">{{ character.mother }}</a></h4>
-            {% else %}
-                <h4>Mother: unknown</h4>
-            {% endif %}
+<h2>{{ character.name }}</h2>
+<div id="character-content">
+    <div id="character-left-div">
+        <img src="{{ character.image }}" alt="Character image" width="225">
+    </div>
+    <div id="character-center-div">
+        {% if character.house %}
+            <h4>{% trans 'House'%}: {{ character.house }}</h4>
+        {% else %}
+            <h4>{% trans 'House: none'%}</h4>
+        {% endif %}
 
-            {% if siblings %}
-                <h4>Siblings:</h4>
-                <ul>
-                {% for s in siblings %}
-                    <li><a href="/lore/character/{{ s.pk }}">{{ s }}</a></li>
-                {% endfor %}
-                </ul>
-            {% endif %}
+        {% if character.father %}
+            <h4>{% trans 'Father'%}: <a class="father-name-ref area" id="character-name-{{character.father.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ character.father.pk }}">{{ character.father }}
+                <div class="fixed father-popup" id="father-popup-{{character.father.pk}}"></div></a></h4>
+        {% else %}
+            <h4>{% trans 'Father'%}: {% trans 'unknown'%}</h4>
+        {% endif %}
+        
+        {% if character.mother %}
+            <h4>{% trans 'Mother'%}: <a class="mother-name-ref area" id="character-name-{{character.mother.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ character.mother.pk }}">{{ character.mother }}
+                <div class="fixed mother-popup" id="mother-popup-{{character.mother.pk}}"></div></a></h4>
+        {% else %}
+            <h4>{% trans 'Mother'%}: {% trans 'unknown'%}</h4>
+        {% endif %}
 
-            <h4>Slug: @{{ character.slug }}</h4>
-        </div>
-        <div id="character-right-div">
-            {% if related %}
-                <h4>Related characters:</h4>
-                <ul>
-                    {% for r in related %}
-                        <li><a href="/lore/character/{{ r.pk }}">{{ r.name }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </div>
-        <div id="character-appearances-div">
-            <h4>Appearances:</h4>
+        {% if siblings %}
+            <h4>{% trans 'Siblings'%}:</h4>
             <ul>
-            {% for ep in character.appearances.all %}
-                <li><a href="/lore/episode/{{ ep.episode.pk }}">{{ ep.episode.title }}</a> (<a href="/lore/season/{{ ep.episode.season }}">season {{ ep.episode.season }}</a>)</li>
+            {% for s in siblings %}
+                <li><a class="sibling-name-ref area" id="sibling-name-{{s.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ s.pk }}">{{ s }}
+                    <div class="fixed sibling-popup" id="sibling-popup-{{s.pk}}"></div></a></li>
             {% endfor %}
             </ul>
-        </div>
+        {% endif %}
+
+        <h4>Slug: @{{ character.slug }}</h4>
     </div>
+    <div id="character-right-div">
+        {% if related %}
+            <h4>{% trans 'Related characters'%}:</h4>
+            <ul>
+                {% for r in related %}
+                    <li><a class="character-name-ref area" id="character-name-{{r.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ r.pk }}">{{ r.name }}
+                        <div class="fixed character-popup" id="character-popup-{{r.pk}}"></div></a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div id="character-appearances-div">
+        <h4>{% trans 'Appearances'%}:</h4>
+        {% for season in appearances %}
+        <div class="content">
+            {% if season.episodios %}
+            <a name="temporada-{{ season.numero }}" id="nombre-temporada-personaje"><p><b>{% trans 'Season'%} {{season.numero}}</b></p></a>
+            <div class="episodios" id="temporada-{{season.numero}}">
+                {% for ep in season.episodios %}
+                <ul>
+                    <li><a href="/{{LANGUAGE_CODE}}/lore/episode/{{ep.pk}}">
+                    {{ep.title}}</a> (<a href="/{{LANGUAGE_CODE}}/lore/season/{{ep.season}}">{% trans 'season'%} {{ep.season}}</a>)</li>
+                </ul>
+                {% endfor %}
+            </div>
+            <br>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>    
+<script src="{% static 'assets/js/popups.js' %}"></script>  
+<script type="text/javascript">
+    $(document).ready(function() {
+      //jQuery code...
+      $("a").click(function(){
+        var name = $(this).attr("name");
+        name = "#" + name; //# se utiliza con las ids
+        $(name).slideUp();
+      });
+      $("a").dblclick(function(){
+        var name = $(this).attr("name");
+        name = "#"+name;
+        $(name).slideDown();
+      });
+    }); 
+</script>
 {% endblock %}

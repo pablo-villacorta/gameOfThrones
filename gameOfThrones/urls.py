@@ -14,8 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from django.conf.urls import include, url
 from app import views, api_views
+from django.conf.urls.i18n import i18n_patterns
 
 from rest_framework import routers
 
@@ -30,5 +32,16 @@ handler404 = views.handler404
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('', include('app.urls'))
+    path('api/charactersByName', api_views.CharacterNameView.as_view()),
+    path('api/housesByName', api_views.HouseNameView.as_view()),
+    path('api/episodesByTitle', api_views.EpisodeNameView.as_view()),
+    path('api/charactersByID', api_views.CharacterIDView.as_view()),
+    path('api/housesByID', api_views.HouseIDView.as_view()),
+    #path('', include('app.urls'))
+    path('login_/', views.loginPOST),
+    path('register_/', views.registerPOST)
 ]
+
+urlpatterns += i18n_patterns(
+    url(r'^', include('app.urls'))
+)

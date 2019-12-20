@@ -1,17 +1,19 @@
-{% extends 'base.html' %}
+{% extends 'base_content.html' %}
 
 {% block content %}
-    <form method="POST" action="/forum/newthread/">
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+    <form method="POST" action="/{{LANGUAGE_CODE}}/forum/newthread/">
         {% csrf_token %}
         <br>
-        {{ thread_form.title.label_tag }}<br><br>
+        <label for="id_title">{% trans 'Title of the thread'%}:</label><br><br>
         {{ thread_form.title }}<br><br>
-        {{ thread_form.description.label_tag }}<br><br>
+        <label for="id_description">{% trans 'Description'%}:</label><br><br>
         {{ thread_form.description }}<br><br>
         
-        {{ post_form.content.label_tag }}<br><br>
+        <label for="id_content">{% trans 'Message content'%}:</label><br><br>
         {{ post_form.content }}<br><br>
-        
+
         <input type="submit" value="Submit"/>
     </form>
 {% endblock %}

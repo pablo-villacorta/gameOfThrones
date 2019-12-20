@@ -1,34 +1,39 @@
-{% extends 'base.html' %}
+{% extends 'base_content.html' %}
 
 {% block content %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <div class="newPost-container" id="vue-newPost">
     <div class="newPost-columna0">
-        <h3>New post for thread: <i>{{ thread.title }}</i></h3>
-        <form method="POST" action="/forum/thread/{{ thread.pk }}/new">
+        <h3>{% trans 'New post for thread'%}: <i>{{ thread.title }}</i></h3>
+        <form method="POST" action="/{{LANGUAGE_CODE}}/forum/thread/{{ thread.pk }}/new">
             {% csrf_token %}
             {{ form.content.label_tag }}<br><br>
             {{ form.content }}<br><br>
+
             <input type="submit" value="Submit" />
         </form>
     </div>
     <div class="newPost-columna1">
-        {% verbatim %}
-        <h2>Previsualización del post</h2>
+        <h2>{% trans 'Preview' %}</h2>
         <div class="post">
-            <p class="post-date"><b>Date:</b> {{ fecha }}</p>
+            <p class="post-date"><b>{% trans 'Date' %}:</b> {% verbatim %}{{ fecha }}</p>
             <p class="post-content">{{ contenido }}</p>{% endverbatim %}
-            <p class="post-author"><b>Author:</b> {{ request.session.username }}</p>{% verbatim %}
-            <p class="post-position">#</p>
+            <p class="post-author"><b>{% trans 'Author'%}:</b> {{ request.session.username }}</p>{% verbatim %}
+            <p class="post-position">#{{posicionEnHilo}}</p>
         </div>
         {% endverbatim %}
     </div>
 </div>
+<!--Libreria para formatear la fecha-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <script>
     let newPostApp = new Vue({
         el: "#vue-newPost",
         data: {
             contenido: "",
-            fecha: new Date().toUTCString()
+            fecha: moment(new Date()).format("DD/MM/YYYY HH:mm"),
+            posicionEnHilo: "{{ numberOfPosts }}"
         }
     });
 </script>

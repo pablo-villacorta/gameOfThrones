@@ -1,0 +1,270 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-20 10:56+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\app\templates\base_content.html:12 .\app\templates\base_cover.html:12
+msgid "Game of Thrones"
+msgstr "Juego de Tronos"
+
+#: .\app\templates\base_content.html:101 .\app\templates\base_cover.html:101
+msgid "Search"
+msgstr "Buscar"
+
+#: .\app\templates\base_content.html:106 .\app\templates\base_cover.html:106
+msgid "Matching characters:"
+msgstr "Personajes:"
+
+#: .\app\templates\base_content.html:114 .\app\templates\base_cover.html:114
+msgid "Matching houses:"
+msgstr "Casas:"
+
+#: .\app\templates\base_content.html:122 .\app\templates\base_cover.html:122
+msgid "Matching episodes:"
+msgstr "Episodios:"
+
+#: .\app\templates\base_content.html:161 .\app\templates\base_cover.html:161
+msgid "home"
+msgstr "inicio"
+
+#: .\app\templates\base_content.html:162 .\app\templates\base_cover.html:162
+msgid "about"
+msgstr "acerca de"
+
+#: .\app\templates\base_content.html:164 .\app\templates\base_cover.html:164
+msgid "forum"
+msgstr "foro"
+
+#: .\app\templates\base_content.html:165 .\app\templates\base_cover.html:165
+msgid "quiz"
+msgstr "quiz"
+
+#: .\app\templates\base_content.html:167 .\app\templates\base_cover.html:167
+msgid "Logged in as"
+msgstr "Logeado como"
+
+#: .\app\templates\base_content.html:168 .\app\templates\base_cover.html:168
+msgid "Log out"
+msgstr "Cerrar sesión"
+
+#: .\app\templates\base_content.html:170 .\app\templates\base_cover.html:170
+#: .\app\templates\login.html:6 .\app\templates\register.html:19
+msgid "Log in"
+msgstr "Iniciar sesión"
+
+#: .\app\templates\base_content.html:204 .\app\templates\base_cover.html:197
+msgid "game of thrones"
+msgstr "juego de tronos"
+
+#: .\app\templates\forum\list.html:12
+msgid "The forum"
+msgstr "El Foro"
+
+#: .\app\templates\forum\list.html:25
+msgid "Threads"
+msgstr "Hilos"
+
+#: .\app\templates\forum\list.html:26
+msgid "New thread"
+msgstr "Nuevo hilo"
+
+#: .\app\templates\forum\list.html:29
+msgid "Title"
+msgstr "Título"
+
+#: .\app\templates\forum\list.html:30 .\app\templates\forum\newthread.html:11
+msgid "Description"
+msgstr "Descripción"
+
+#: .\app\templates\forum\list.html:31
+msgid "Last post"
+msgstr "Último post"
+
+#: .\app\templates\forum\newpost.html:8
+msgid "New post for thread"
+msgstr "Nuevo post para el hilo "
+
+#: .\app\templates\forum\newpost.html:18
+msgid "Preview"
+msgstr "Previsualización"
+
+#: .\app\templates\forum\newpost.html:20 .\app\templates\forum\thread.html:13
+msgid "Date"
+msgstr "Fecha"
+
+#: .\app\templates\forum\newpost.html:22 .\app\templates\forum\thread.html:15
+msgid "Author"
+msgstr "Autor"
+
+#: .\app\templates\forum\newthread.html:9
+msgid "Title of the thread"
+msgstr "Título del hilo"
+
+#: .\app\templates\forum\newthread.html:14
+msgid "Message content"
+msgstr "Contenido del mensaje"
+
+#: .\app\templates\forum\thread.html:9
+msgid "New post"
+msgstr "Nuevo post"
+
+#: .\app\templates\home.html:13
+msgid "The show may be over... "
+msgstr "Puede que la serie haya terminado..."
+
+#: .\app\templates\home.html:14
+msgid " But the story continues here"
+msgstr "Pero la historia continúa aquí"
+
+#: .\app\templates\login.html:9
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: .\app\templates\login.html:11 .\app\templates\register.html:11
+msgid "Password"
+msgstr "Contraseña"
+
+#: .\app\templates\login.html:14
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: .\app\templates\login.html:16
+msgid "New here?"
+msgstr "¿Nuevo por aquí?"
+
+#: .\app\templates\login.html:16
+msgid "Create an account"
+msgstr "Crea una cuenta"
+
+#: .\app\templates\lore\404.html:6
+msgid "Oops... we don't have the page you're looking for"
+msgstr "Ups... no tenemos la página que estás buscando"
+
+#: .\app\templates\lore\character.html:14
+msgid "House"
+msgstr "Casa"
+
+#: .\app\templates\lore\character.html:16
+msgid "House: none"
+msgstr "Casa: desconocido"
+
+#: .\app\templates\lore\character.html:20
+#: .\app\templates\lore\character.html:22
+msgid "Father"
+msgstr "Padre"
+
+#: .\app\templates\lore\character.html:22
+#: .\app\templates\lore\character.html:28
+msgid "unknown"
+msgstr "desconocido"
+
+#: .\app\templates\lore\character.html:26
+#: .\app\templates\lore\character.html:28
+msgid "Mother"
+msgstr "Madre"
+
+#: .\app\templates\lore\character.html:32
+msgid "Siblings"
+msgstr "Hermanos"
+
+#: .\app\templates\lore\character.html:44 .\app\templates\lore\house.html:13
+msgid "Related characters"
+msgstr "Personajes relacionados"
+
+#: .\app\templates\lore\character.html:53
+msgid "Appearances"
+msgstr "Apariciones"
+
+#: .\app\templates\lore\character.html:57 .\app\templates\lore\cover.html:35
+#: .\app\templates\lore\cover.html:36 .\app\templates\lore\cover.html:37
+#: .\app\templates\lore\cover.html:38 .\app\templates\lore\cover.html:39
+#: .\app\templates\lore\cover.html:40 .\app\templates\lore\cover.html:41
+#: .\app\templates\lore\episode.html:12 .\app\templates\lore\season.html:6
+msgid "Season"
+msgstr "Temporada"
+
+#: .\app\templates\lore\character.html:62
+#: .\app\templates\lore\character.html:71
+msgid "season"
+msgstr "temporada"
+
+#: .\app\templates\lore\cover.html:12
+msgid "The Lore"
+msgstr "El Lore"
+
+#: .\app\templates\lore\cover.html:25
+msgid "Pick a house:"
+msgstr "Elige una casa:"
+
+#: .\app\templates\lore\cover.html:33
+msgid "Pick a season:"
+msgstr "Elige una temporada:"
+
+#: .\app\templates\lore\episode.html:9
+msgid "Random character from the episode"
+msgstr "Personaje aleatorio del episodio"
+
+#: .\app\templates\lore\episode.html:13
+msgid "Duration"
+msgstr "Duración"
+
+#: .\app\templates\lore\episode.html:14
+msgid "Directed by"
+msgstr "Dirigido por"
+
+#: .\app\templates\lore\episode.html:17
+msgid "Characters"
+msgstr "Personajes"
+
+#: .\app\templates\lore\house.html:10
+msgid "House logo"
+msgstr "Logo de la casa"
+
+#: .\app\templates\lore\house.html:21
+msgid "Allegiances"
+msgstr "Alianzas"
+
+#: .\app\templates\lore\season.html:7
+msgid "Pick an episode:"
+msgstr "Elige un episodio:"
+
+#: .\app\templates\register.html:6 .\app\templates\register.html:17
+msgid "Register"
+msgstr "Crear una cuenta"
+
+#: .\app\templates\register.html:9
+msgid "Your username"
+msgstr "Tu nombre de usuario"
+
+#: .\app\templates\register.html:13
+msgid "Password (again)"
+msgstr "Contraseña (de nuevo)"
+
+#: .\app\templates\register.html:19
+msgid "Already a member?"
+msgstr "¿Ya eres miembro?"
+
+#: .\gameOfThrones\settings.py:58
+msgid "English"
+msgstr ""
+
+#: .\gameOfThrones\settings.py:59
+msgid "Spanish"
+msgstr ""
+
+#~ msgid "Share"
+#~ msgstr "Compartir"

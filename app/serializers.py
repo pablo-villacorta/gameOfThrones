@@ -43,5 +43,5 @@ class EpisodeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Episode
-        fields = ('title', 'numberInSeason', 'duration', 'directedBy', 'season', 'episode_appearance')
+        fields = ('id', 'title', 'numberInSeason', 'duration', 'directedBy', 'season', 'episode_appearance')
     

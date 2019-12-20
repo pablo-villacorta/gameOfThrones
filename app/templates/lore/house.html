@@ -1,27 +1,34 @@
-{% extends 'base.html' %}
+{% extends 'base_content.html' %}
 
 {% block content %}
-    <div id="house-content">
-        <div id="house-left-div">
-            <h2>{{ house.name }}</h2>
-            <h3>{{ house.words }}</h3>
-            <img src="{{ house.logoURL }}" alt="House logo" width="200">
-        </div>
-        <div id="house-center-div">
-            <h4>Related characters:</h4>
-            <ul>
-            {% for c in characters %}
-                <li><a href="/lore/character/{{ c.pk }}">{{ c.name }}</a></li>
-            {% endfor %}
-            </ul>
-        </div>
-        <div id="house-right-div">
-            <h4>Allegiances:</h4>
-            <ul>
-            {% for a in allegiance %}
-                <li><a href="/lore/house/{{a.pk}}">{{ a }}</a></li>
-            {% endfor %}
-            </ul>
-        </div>
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+<div id="house-content">
+    <div id="house-left-div">
+        <h2>{{ house.name }}</h2>
+        <h3>{{ house.words }}</h3>
+        <img src="{{ house.logoURL }}" alt="{%blocktrans%}House logo{%endblocktrans%}" width="200">
     </div>
+    <div id="house-center-div">
+        <h4>{% trans 'Related characters'%}:</h4>
+        <ul>
+        {% for c in characters %}
+            <li><a class="character-name-ref area" id="character-name-{{c.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ c.pk }}">{{ c.name }}
+                <div class="fixed character-popup" id="character-popup-{{c.pk}}"></div>
+            </a></li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div id="house-right-div">
+        <h4>{% trans 'Allegiances' %}:</h4>
+        <ul>
+        {% for a in allegiance %}
+            <li><a class="house-name-ref area" id="house-name-{{a.pk}}" href="/{{LANGUAGE_CODE}}/lore/house/{{a.pk}}">{{ a }}
+                <div class="fixed house-popup" id="house-popup-{{a.pk}}"></div></a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+<script src="{% static 'assets/js/popups.js' %}"></script>
 {% endblock %}

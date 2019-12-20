@@ -1,11 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'base_content.html' %}
 
 {% block content %}
-    <h2>Season {{ seasonNumber }}</h2>
-    <h3>Pick an episode:</h3>
-    <ul>
-        {% for e in episodes %}
-            <li><a href="/lore/episode/{{e.pk}}">{{ e.title }}</a></li>
-        {% endfor %}
-    </ul>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<h2>{%trans 'Season'%} {{ seasonNumber }}</h2>
+<h3>{%blocktrans%}Pick an episode:{%endblocktrans%}</h3>
+<ul>
+    {% for e in episodes %}
+        <li><a href="/{{LANGUAGE_CODE}}/lore/episode/{{e.pk}}">{{ e.title }}</a></li>
+    {% endfor %}
+</ul>
 {% endblock %}

@@ -1,19 +1,20 @@
-{% extends 'base.html' %}
-
+{% extends 'base_cover.html' %}
 {% block content %}
-<h1>Welcome!</h1>
-<h3>Pick an option:</h3>
-<div class="row">
-  <div class="column" id="a" style="background-color:#aaa;" onclick="location.href='lore/'">
-    <h1>Lore</h1>
-  </div>
-  <div class="column" id="b" style="background-color:#bbb;" onclick="location.href='forum/'">
-    <h1>Forum</h1>
-  </div>
-  <div class="column" id="c" style="background-color:#ccc;" onclick="location.href='quiz'">
-    <h1>Quiz</h1>
-  </div>
-</div>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+    <!--Home Sections-->
 
-
+    <section id="hello" class="home bg-mega">
+        <div class="overlay" id="home-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="main_home text-center">
+                    <div class="home_text">
+                        <h4 class="text-black text-uppercase">{% blocktrans %}The show may be over... {% endblocktrans %}</h4>
+                        <h1 class="text-gray text-uppercase">{% blocktrans %} But the story continues here{% endblocktrans %}</h1>
+                    </div>
+                </div>
+            </div><!--End off row-->
+        </div><!--End off container -->
+    </section> <!--End off Home Sections-->
 {% endblock %}

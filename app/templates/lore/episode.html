@@ -1,23 +1,28 @@
-{% extends 'base.html' %}
+{% extends 'base_content.html' %}
 
 {% block content %}
-    <div id="episode-content">
-        <div id="episode-left-div">
-            <h2>{{ episode.title }} ({{ episode.season }}x{{ episode.numberInSeason }})</h2>
-            <img src="{{ image }}" width="225" alt="Random character form the episode"/>
-        </div>
-        <div id="episode-center-div">
-            <h4>Season: <a href="/lore/season/{{episode.season}}">{{ episode.season }}</a></h4>
-            <h4>Duration: {{ episode.duration }}'</h4>
-            <h4>Directed by: {{ episode.directedBy }}</h4>
-        </div>
-        <div id="episode-right-div">
-            <h4>Characters:</h4>
-                <ul>
-                    {% for a in episode.episode_appearance.distinct %}
-                        <li><a href="/lore/character/{{ a.character.pk }}/">{{a.character.name}}</a></li>
-                    {% endfor %}
-                </ul>
-        </div>
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<h2>{{ episode.title }} ({{ episode.season }}x{{ episode.numberInSeason }})</h2>
+<div id="episode-content">
+    <div id="episode-left-div">
+        <img src="{{ image }}" width="225" alt="{% blocktrans %}Random character from the episode{% endblocktrans %}"/>
     </div>
+    <div id="episode-center-div">
+        <h4>{% trans 'Season' %}: <a href="/{{LANGUAGE_CODE}}/lore/season/{{episode.season}}">{{ episode.season }}</a></h4>
+        <h4>{% trans 'Duration' %}: {{ episode.duration }}'</h4>
+        <h4>{% trans 'Directed by' %}: {{ episode.directedBy }}</h4>
+    </div>
+    <div id="episode-right-div">
+        <h4>{% trans 'Characters'%}:</h4>
+            <ul>
+                {% for a in episode.episode_appearance.distinct %}
+                    <li><a class="character-name-ref area" id="character-name-{{a.character.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ a.character.pk }}/">{{a.character.name}}
+                        <div class="fixed character-popup" id="character-popup-{{a.character.pk}}"></div></a></li>
+                {% endfor %}
+            </ul>
+    </div>
+</div>    
+<script src="{% static 'assets/js/popups.js' %}"></script>
 {% endblock %}

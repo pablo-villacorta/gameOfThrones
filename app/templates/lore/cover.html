@@ -1,27 +1,49 @@
-{% extends 'base.html' %}
+{% extends 'base_cover.html' %}
 
 {% block content %}
-    <h1>Welcome to the lore page!</h1>
-    <div id="lore-cover-content">
-        <div id="lore-cover-house">
-            <h3>Pick a house:</h3>
-            <ul>
-                {% for h in houses %}
-                    <li><a href="/lore/house/{{h.pk}}">{{ h.name }}</a></li>
-                {% endfor %}
-            </ul>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+    <section id="hello" class="blog-banner bg-mega">
+        <div class="overlay lore-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="main_home text-center">
+                    <div class="about_text">
+                        <h1 class="text-black text-uppercase">{%blocktrans%}The Lore{%endblocktrans%}</h1>
+                    </div>
+                </div>
+            </div><!--End off row-->
+        </div><!--End off container -->
+    </section> <!--End off Home Sections-->
+
+    <section id="blog_fashion" class="blog_fashion roomy-100">
+        <div class="container">
+            <div class="row">
+                <div class="main_blog_fashion">
+                    <div id="lore-cover-content">
+                        <div id="lore-cover-house">
+                            <h3>{% blocktrans %}Pick a house:{% endblocktrans %}</h3>
+                            <ul>
+                                {% for h in houses %}
+                                    <li><a href="/{{LANGUAGE_CODE}}/lore/house/{{h.pk}}">{{ h.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div id="lore-cover-season">
+                            <h3>{%blocktrans%}Pick a season:{%endblocktrans%}</h3>
+                            <ul>
+                                <li><a href="/{{LANGUAGE_CODE}}/lore/season/1">{%trans 'Season'%} 1</a></li>
+                                <li><a href="/{{LANGUAGE_CODE}}/lore/season/2">{%trans 'Season'%} 2</a></li>
+                                <li><a href="/{{LANGUAGE_CODE}}/lore/season/3">{%trans 'Season'%} 3</a></li>
+                                <li><a href="/{{LANGUAGE_CODE}}/lore/season/4">{%trans 'Season'%} 4</a></li>
+                                <li><a href="/{{LANGUAGE_CODE}}/lore/season/5">{%trans 'Season'%} 5</a></li>
+                                <li><a href="/{{LANGUAGE_CODE}}/lore/season/6">{%trans 'Season'%} 6</a></li>
+                                <li><a href="/{{LANGUAGE_CODE}}/lore/season/7">{%trans 'Season'%} 7</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="lore-cover-season">
-            <h3>Pick a season:</h3>
-            <ul>
-                <li><a href="/lore/season/1">Season 1</a></li>
-                <li><a href="/lore/season/2">Season 2</a></li>
-                <li><a href="/lore/season/3">Season 3</a></li>
-                <li><a href="/lore/season/4">Season 4</a></li>
-                <li><a href="/lore/season/5">Season 5</a></li>
-                <li><a href="/lore/season/6">Season 6</a></li>
-                <li><a href="/lore/season/7">Season 7</a></li>
-            </ul>
-        </div>
-    </div>
+    </section>
 {% endblock %}
