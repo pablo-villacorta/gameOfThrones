@@ -132,7 +132,6 @@ def handler404(request, exception):
 
 def newPost(request, id):
     langCode = request.build_absolute_uri().split("/")[-5]
-    print("hey!")
     if not request.session.has_key('username'):
         return redirect('/'+langCode+'/login')
     if request.method == 'POST':
@@ -140,7 +139,7 @@ def newPost(request, id):
         if form.is_valid():
             content = form.cleaned_data["content"]
             post = Post()
-            post.content = util.createLinks(content)
+            post.content = content
             post.user = User.objects.get(username=request.session["username"])
             post.thread = Thread.objects.get(pk=id)
             post.date = timezone.now()
@@ -226,7 +225,13 @@ class PostListView(generic.ListView):
 
     def get_queryset(self):
         thread = Thread.objects.get(pk=self.kwargs["id"])
-        return thread.thread_posts.all().order_by('-date')
+        posts = thread.thread_posts.all().order_by('-date')
+        for post in posts:
+            post.content = util.createLinks(post.content, post.positionInThread)
+            print(post.content)
+            # don't save
+        return posts
+        #return thread.thread_posts.all().order_by('-date')
     
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)

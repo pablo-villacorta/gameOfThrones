@@ -1920,7 +1920,7 @@ Blog Details Page
     border-radius: 15px;
 }
 
-.character-popup, .father-popup, .mother-popup, .sibling-popup, .house-popup {
+.character-popup, .father-popup, .mother-popup, .sibling-popup, .house-popup, .slug-popup {
     position: absolute;
     top: 20px;
     left: 15px;

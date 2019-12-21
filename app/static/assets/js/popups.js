@@ -20,6 +20,30 @@ function characterPopupListener(type) {
     });
 }
 
+function characterSlugPopupListener() {
+    $(".character-slug-ref").mouseenter( function() {
+        let p = $(this).attr('id').split("-");
+        let pk = p[p.length-1];
+        let v = "#slug-popup-"+pk;
+        id = $(this).attr('charId')
+        if ($(v).children().length == 0) {
+            console.log("searching");
+            $.get("/api/charactersByID?search="+id, function(resp) {
+            let char = resp[0];
+            $(v).append('<img src='+char.image+'>'); 
+            });
+        }
+        $(v).show();
+    });
+    
+    $(".character-slug-ref").mouseleave( function() {
+        let p = $(this).attr('id').split("-");
+        let pk = p[p.length-1];
+        let v = "#slug-popup-"+pk;
+        $(v).hide();
+    });
+}
+
 function housePopupListener(type) {
     $("."+type+"-name-ref").mouseenter( function() {
         let p = $(this).attr('id').split("-");
@@ -46,5 +70,7 @@ characterPopupListener("character");
 characterPopupListener("father");
 characterPopupListener("mother");
 characterPopupListener("sibling");
+
+characterSlugPopupListener();
 
 housePopupListener("house");
