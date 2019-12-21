@@ -1936,6 +1936,28 @@ Blog Details Page
     position: relative;
 }
 
+.about-content {
+    display: flex;
+}
+
+.about-title {
+    cursor: pointer;
+    width: 33.33%;
+}
+
+.about-title h1 {
+    text-align: center;
+}
+
+.about-lore-info, .about-forum-info {
+    border-right: none;
+}
+
+.about-hidden {
+    display: none;
+    text-align: center;
+}
+
 /*
     Añadir aqui el CSS nuevo (no cambiar nada de lo de arriba)
 */

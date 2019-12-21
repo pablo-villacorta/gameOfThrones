@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-20 10:56+0100\n"
+"POT-Creation-Date: 2019-12-21 16:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,56 +17,89 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\app\templates\about.html:7
+#, fuzzy
+msgid "Lore"
+msgstr "Lore"
+
+#: .\app\templates\about.html:9
+msgid ""
+"You can find all the details of the show in our Lore section. Check it out"
+msgstr "Puedes averiguar todos los detalles de la serie en nuestra sección de Lore. Échale un vistazo"
+
+#: .\app\templates\about.html:9 .\app\templates\about.html:15
+#: .\app\templates\about.html:21
+msgid "here"
+msgstr "aquí"
+
+#: .\app\templates\about.html:13
+msgid "Forum"
+msgstr "Foro"
+
+#: .\app\templates\about.html:15
+msgid ""
+"Join the debate and interact with other fans in our Forum section. Check it "
+"out"
+msgstr "Únete al debate e interactúa con otros fans en el foro. Pruébalo"
+
+#: .\app\templates\about.html:19
+msgid "Quiz"
+msgstr "Quiz"
+
+#: .\app\templates\about.html:21
+msgid "Find out which house you belong to by taking our quiz. Check it out"
+msgstr "Descubre a qué casa perteneces haciendo nuestro quiz. Pruébalo"
+
 #: .\app\templates\base_content.html:12 .\app\templates\base_cover.html:12
 msgid "Game of Thrones"
 msgstr "Juego de Tronos"
 
-#: .\app\templates\base_content.html:101 .\app\templates\base_cover.html:101
+#: .\app\templates\base_content.html:102 .\app\templates\base_cover.html:102
 msgid "Search"
 msgstr "Buscar"
 
-#: .\app\templates\base_content.html:106 .\app\templates\base_cover.html:106
+#: .\app\templates\base_content.html:107 .\app\templates\base_cover.html:107
 msgid "Matching characters:"
 msgstr "Personajes:"
 
-#: .\app\templates\base_content.html:114 .\app\templates\base_cover.html:114
+#: .\app\templates\base_content.html:115 .\app\templates\base_cover.html:115
 msgid "Matching houses:"
 msgstr "Casas:"
 
-#: .\app\templates\base_content.html:122 .\app\templates\base_cover.html:122
+#: .\app\templates\base_content.html:123 .\app\templates\base_cover.html:123
 msgid "Matching episodes:"
 msgstr "Episodios:"
 
-#: .\app\templates\base_content.html:161 .\app\templates\base_cover.html:161
+#: .\app\templates\base_content.html:162 .\app\templates\base_cover.html:162
 msgid "home"
 msgstr "inicio"
 
-#: .\app\templates\base_content.html:162 .\app\templates\base_cover.html:162
+#: .\app\templates\base_content.html:163 .\app\templates\base_cover.html:163
 msgid "about"
 msgstr "acerca de"
 
-#: .\app\templates\base_content.html:164 .\app\templates\base_cover.html:164
+#: .\app\templates\base_content.html:165 .\app\templates\base_cover.html:165
 msgid "forum"
 msgstr "foro"
 
-#: .\app\templates\base_content.html:165 .\app\templates\base_cover.html:165
+#: .\app\templates\base_content.html:166 .\app\templates\base_cover.html:166
 msgid "quiz"
 msgstr "quiz"
 
-#: .\app\templates\base_content.html:167 .\app\templates\base_cover.html:167
+#: .\app\templates\base_content.html:168 .\app\templates\base_cover.html:168
 msgid "Logged in as"
 msgstr "Logeado como"
 
-#: .\app\templates\base_content.html:168 .\app\templates\base_cover.html:168
+#: .\app\templates\base_content.html:169 .\app\templates\base_cover.html:169
 msgid "Log out"
 msgstr "Cerrar sesión"
 
-#: .\app\templates\base_content.html:170 .\app\templates\base_cover.html:170
+#: .\app\templates\base_content.html:171 .\app\templates\base_cover.html:171
 #: .\app\templates\login.html:6 .\app\templates\register.html:19
 msgid "Log in"
 msgstr "Iniciar sesión"
 
-#: .\app\templates\base_content.html:204 .\app\templates\base_cover.html:197
+#: .\app\templates\base_content.html:205 .\app\templates\base_cover.html:198
 msgid "game of thrones"
 msgstr "juego de tronos"
 
@@ -154,51 +187,50 @@ msgstr "Crea una cuenta"
 msgid "Oops... we don't have the page you're looking for"
 msgstr "Ups... no tenemos la página que estás buscando"
 
-#: .\app\templates\lore\character.html:14
+#: .\app\templates\lore\character.html:15
 msgid "House"
 msgstr "Casa"
 
-#: .\app\templates\lore\character.html:16
+#: .\app\templates\lore\character.html:17
 msgid "House: none"
 msgstr "Casa: desconocido"
 
-#: .\app\templates\lore\character.html:20
-#: .\app\templates\lore\character.html:22
+#: .\app\templates\lore\character.html:21
+#: .\app\templates\lore\character.html:24
 msgid "Father"
 msgstr "Padre"
 
-#: .\app\templates\lore\character.html:22
-#: .\app\templates\lore\character.html:28
+#: .\app\templates\lore\character.html:24
+#: .\app\templates\lore\character.html:31
 msgid "unknown"
 msgstr "desconocido"
 
-#: .\app\templates\lore\character.html:26
 #: .\app\templates\lore\character.html:28
+#: .\app\templates\lore\character.html:31
 msgid "Mother"
 msgstr "Madre"
 
-#: .\app\templates\lore\character.html:32
+#: .\app\templates\lore\character.html:35
 msgid "Siblings"
 msgstr "Hermanos"
 
-#: .\app\templates\lore\character.html:44 .\app\templates\lore\house.html:13
+#: .\app\templates\lore\character.html:48 .\app\templates\lore\house.html:14
 msgid "Related characters"
 msgstr "Personajes relacionados"
 
-#: .\app\templates\lore\character.html:53
+#: .\app\templates\lore\character.html:58
 msgid "Appearances"
 msgstr "Apariciones"
 
-#: .\app\templates\lore\character.html:57 .\app\templates\lore\cover.html:35
+#: .\app\templates\lore\character.html:62 .\app\templates\lore\cover.html:35
 #: .\app\templates\lore\cover.html:36 .\app\templates\lore\cover.html:37
 #: .\app\templates\lore\cover.html:38 .\app\templates\lore\cover.html:39
 #: .\app\templates\lore\cover.html:40 .\app\templates\lore\cover.html:41
-#: .\app\templates\lore\episode.html:12 .\app\templates\lore\season.html:6
+#: .\app\templates\lore\episode.html:13 .\app\templates\lore\season.html:6
 msgid "Season"
 msgstr "Temporada"
 
-#: .\app\templates\lore\character.html:62
-#: .\app\templates\lore\character.html:71
+#: .\app\templates\lore\character.html:67
 msgid "season"
 msgstr "temporada"
 
@@ -214,27 +246,27 @@ msgstr "Elige una casa:"
 msgid "Pick a season:"
 msgstr "Elige una temporada:"
 
-#: .\app\templates\lore\episode.html:9
+#: .\app\templates\lore\episode.html:10
 msgid "Random character from the episode"
 msgstr "Personaje aleatorio del episodio"
 
-#: .\app\templates\lore\episode.html:13
+#: .\app\templates\lore\episode.html:14
 msgid "Duration"
 msgstr "Duración"
 
-#: .\app\templates\lore\episode.html:14
+#: .\app\templates\lore\episode.html:15
 msgid "Directed by"
 msgstr "Dirigido por"
 
-#: .\app\templates\lore\episode.html:17
+#: .\app\templates\lore\episode.html:18
 msgid "Characters"
 msgstr "Personajes"
 
-#: .\app\templates\lore\house.html:10
+#: .\app\templates\lore\house.html:11
 msgid "House logo"
 msgstr "Logo de la casa"
 
-#: .\app\templates\lore\house.html:21
+#: .\app\templates\lore\house.html:24
 msgid "Allegiances"
 msgstr "Alianzas"
 

@@ -1,0 +1,39 @@
+{% extends 'base_content.html' %}
+{% block content %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="about-content">
+    <div class="about-lore-info about-title">
+        <h1>{% trans 'Lore' %}</h1>
+        <div class="about-lore-hidden about-hidden">
+            <h3>{% trans 'You can find all the details of the show in our Lore section. Check it out' %} <a href="/{{LANGUAGE_CODE}}/lore">{% trans 'here' %}</a>.</h3>
+        </div>
+    </div>
+    <div class="about-forum-info about-title">
+        <h1>{% trans 'Forum' %}</h1>
+        <div class="about-forum-hidden about-hidden">
+            <h3>{% trans 'Join the debate and interact with other fans in our Forum section. Check it out' %} <a href="/{{LANGUAGE_CODE}}/forum">{% trans 'here' %}</a>.</h3>
+        </div>
+    </div>
+    <div class="about-quiz-info about-title">
+        <h1>{% trans 'Quiz' %}</h1>
+        <div class="about-quiz-hidden about-hidden">
+            <h3>{% trans 'Find out which house you belong to by taking our quiz. Check it out' %} <a href="/{{LANGUAGE_CODE}}/quiz">{% trans 'here' %}</a>.</h3>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $(".about-title").hover(function() {
+            let n = $(this).attr("class")
+            let type = n.split("-")[1]
+            $(".about-"+type+"-hidden").slideDown();
+        }, function() {
+            let n = $(this).attr("class")
+            let type = n.split("-")[1]
+            $(".about-"+type+"-hidden").slideUp();
+        });
+
+    });
+</script>
+{% endblock %}
