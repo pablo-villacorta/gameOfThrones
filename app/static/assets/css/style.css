@@ -1958,6 +1958,14 @@ Blog Details Page
     text-align: center;
 }
 
+.nombre-temporada-personaje {
+    cursor: pointer;
+}
+
+.episodios-temporada-personaje {
+    display: none;
+}
+
 /*
     Añadir aqui el CSS nuevo (no cambiar nada de lo de arriba)
 */

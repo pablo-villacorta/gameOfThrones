@@ -59,8 +59,8 @@
         {% for season in appearances %}
         <div class="content">
             {% if season.episodios %}
-            <a name="temporada-{{ season.numero }}" id="nombre-temporada-personaje"><p><b>{% trans 'Season'%} {{season.numero}}</b></p></a>
-            <div class="episodios" id="temporada-{{season.numero}}">
+            <a name="temporada-{{ season.numero }}" class="nombre-temporada-personaje"><p><b>{% trans 'Season'%} {{season.numero}} <i class="fa fa-chevron-down"></i></b></p></a>
+            <div class="episodios-temporada-personaje" id="temporada-{{season.numero}}">
                 {% for ep in season.episodios %}
                 <ul>
                     <li><a href="/{{LANGUAGE_CODE}}/lore/episode/{{ep.pk}}">
@@ -77,16 +77,10 @@
 <script src="{% static 'assets/js/popups.js' %}"></script>  
 <script type="text/javascript">
     $(document).ready(function() {
-      //jQuery code...
-      $("a").click(function(){
+      $(".nombre-temporada-personaje").click(function(){
         var name = $(this).attr("name");
-        name = "#" + name; //# se utiliza con las ids
-        $(name).slideUp();
-      });
-      $("a").dblclick(function(){
-        var name = $(this).attr("name");
-        name = "#"+name;
-        $(name).slideDown();
+        name = "#" + name;
+        $(name).slideToggle();
       });
     }); 
 </script>
