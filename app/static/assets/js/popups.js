@@ -25,7 +25,7 @@ function characterSlugPopupListener() {
         let p = $(this).attr('id').split("-");
         let pk = p[p.length-1];
         let v = "#slug-popup-"+pk;
-        id = $(this).attr('charId')
+        id = $(this).attr('data-charId')
         if ($(v).children().length == 0) {
             console.log("searching");
             $.get("/api/charactersByID?search="+id, function(resp) {

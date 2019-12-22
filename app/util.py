@@ -13,7 +13,7 @@ def createLinks(content, positionInThread):
             html = tooltipHTML()
             id = str(positionInThread*100000+n*200)
             html = html.replace("#id", id)
-            ret = ret.replace(m, '<a charId="'+str(ch.pk)+'" class="character-slug-ref area" id="character-slug-'+id+'" href="/lore/character/'+str(ch.pk)+'/">'+m+html+'</a>', 1)
+            ret = ret.replace(m, '<a data-charId="'+str(ch.pk)+'" class="character-slug-ref area" id="character-slug-'+id+'" href="/lore/character/'+str(ch.pk)+'/">'+m+html+'</a>', 1)
             print(ret)
             n = n+1 
         except Character.DoesNotExist:

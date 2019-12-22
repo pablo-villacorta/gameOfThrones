@@ -48,7 +48,7 @@ body {
 @-moz-viewport { width: device-width; }
 @-ms-viewport { width: device-width; }
 @-o-viewport { width: device-width; }
-@viewport { width: device-width; }
+/* @viewport { width: device-width; } */
 
 /*
     Page Content
@@ -1997,6 +1997,6 @@ Blog Details Page
     padding: 10px;
 }
 
-/*
-    Añadir aqui el CSS nuevo (no cambiar nada de lo de arriba)
-*/
+.char-container {
+    position: relative;
+}

@@ -19,15 +19,21 @@
             {% endif %}
 
             {% if character.father %}
-                <h4>{% trans 'Father'%}: <a class="father-name-ref area" id="character-name-{{character.father.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ character.father.pk }}">{{ character.father }}
-                    <div class="fixed father-popup" id="father-popup-{{character.father.pk}}"></div></a></h4>
+            <div class="char-container">
+                <h4>{% trans 'Father'%}: <a class="father-name-ref area" id="father-name-{{character.father.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ character.father.pk }}">{{ character.father }}
+                    </a></h4>
+                <div class="fixed father-popup" id="father-popup-{{character.father.pk}}"></div>
+            </div>
             {% else %}
                 <h4>{% trans 'Father'%}: {% trans 'unknown'%}</h4>
             {% endif %}
             
             {% if character.mother %}
-                <h4>{% trans 'Mother'%}: <a class="mother-name-ref area" id="character-name-{{character.mother.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ character.mother.pk }}">{{ character.mother }}
-                    <div class="fixed mother-popup" id="mother-popup-{{character.mother.pk}}"></div></a></h4>
+                <div class="char-container">
+                    <h4>{% trans 'Mother'%}: <a class="mother-name-ref area" id="mother-name-{{character.mother.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ character.mother.pk }}">{{ character.mother }}
+                    </a></h4>
+                    <div class="fixed mother-popup" id="mother-popup-{{character.mother.pk}}"></div>
+                </div>
             {% else %}
                 <h4>{% trans 'Mother'%}: {% trans 'unknown'%}</h4>
             {% endif %}
@@ -36,21 +42,31 @@
                 <h4>{% trans 'Siblings'%}:</h4>
                 <ul>
                 {% for s in siblings %}
-                    <li><a class="sibling-name-ref area" id="sibling-name-{{s.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ s.pk }}">{{ s }}
-                        <div class="fixed sibling-popup" id="sibling-popup-{{s.pk}}"></div></a></li>
+                    <li>
+                        <div class="char-container">
+                            <a class="sibling-name-ref area" id="sibling-name-{{s.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ s.pk }}">{{ s }}
+                            </a>
+                            <div class="fixed sibling-popup" id="sibling-popup-{{s.pk}}"></div>
+                    </div>
+                    </li>
                 {% endfor %}
                 </ul>
             {% endif %}
 
-            <h4>Slug: @<a itemprop="alternateName" class="text-black">{{ character.slug }}</a></h4>
+            <h4>Slug: @<a itemprop="alternateName" href="#" class="text-black">{{ character.slug }}</a></h4>
         </div>
         <div id="character-right-div">
             {% if related %}
                 <h4>{% trans 'Related characters'%}:</h4>
                 <ul>
                     {% for r in related %}
-                        <li><a class="character-name-ref area" id="character-name-{{r.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ r.pk }}">{{ r.name }}
-                            <div class="fixed character-popup" id="character-popup-{{r.pk}}"></div></a></li>
+                        <li>
+                            <div class="char-container">
+                                <a class="character-name-ref area" id="character-name-{{r.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ r.pk }}">{{ r.name }}
+                                </a>
+                                <div class="fixed character-popup" id="character-popup-{{r.pk}}"></div>
+                            </div>
+                        </li>
                     {% endfor %}
                 </ul>
             {% endif %}

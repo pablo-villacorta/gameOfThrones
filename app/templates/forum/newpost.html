@@ -8,7 +8,7 @@
         <h3>{% trans 'New post for thread'%}: <i>{{ thread.title }}</i></h3>
         <form method="POST" action="/{{LANGUAGE_CODE}}/forum/thread/{{ thread.pk }}/new">
             {% csrf_token %}
-            {{ form.content.label_tag }}<br><br>
+            <label for="id_content">{% trans 'Type your message here' %}:</label><br><br>
             {{ form.content }}<br><br>
 
             <input type="submit" value="Submit" />

@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.views.defaults import page_not_found
-import requests
 import json
 from django import forms
 from django.utils import timezone

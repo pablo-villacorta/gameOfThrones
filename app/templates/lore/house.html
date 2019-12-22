@@ -14,9 +14,13 @@
         <h4>{% trans 'Related characters'%}:</h4>
         <ul>
         {% for c in characters %}
-            <li><a class="character-name-ref area" id="character-name-{{c.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ c.pk }}">{{ c.name }}
-                <div class="fixed character-popup" id="character-popup-{{c.pk}}"></div>
-            </a></li>
+            <li>
+                <div class="char-container">
+                    <a class="character-name-ref area" id="character-name-{{c.pk}}" href="/{{LANGUAGE_CODE}}/lore/character/{{ c.pk }}">{{ c.name }}
+                    </a>
+                    <div class="fixed character-popup" id="character-popup-{{c.pk}}"></div>
+                </div>
+            </li>
         {% endfor %}
         </ul>
     </div>
@@ -24,8 +28,13 @@
         <h4>{% trans 'Allegiances' %}:</h4>
         <ul>
         {% for a in allegiance %}
-            <li><a class="house-name-ref area" id="house-name-{{a.pk}}" href="/{{LANGUAGE_CODE}}/lore/house/{{a.pk}}">{{ a }}
-                <div class="fixed house-popup" id="house-popup-{{a.pk}}"></div></a></li>
+            <li>
+                <div class="char-container">
+                    <a class="house-name-ref area" id="house-name-{{a.pk}}" href="/{{LANGUAGE_CODE}}/lore/house/{{a.pk}}">{{ a }}
+                    </a>
+                    <div class="fixed house-popup" id="house-popup-{{a.pk}}"></div>
+                </div>
+            </li>
         {% endfor %}
         </ul>
     </div>
