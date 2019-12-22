@@ -1,27 +1,48 @@
-{% extends 'base_content.html' %}
+{% extends 'base_cover.html' %}
 {% block content %}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
-<div class="about-content">
-    <div class="about-lore-info about-title">
-        <h1>{% trans 'Lore' %}</h1>
-        <div class="about-lore-hidden about-hidden">
-            <h3>{% trans 'You can find all the details of the show in our Lore section. Check it out' %} <a href="/{{LANGUAGE_CODE}}/lore">{% trans 'here' %}</a>.</h3>
+<section id="hello" class="blog-banner bg-mega">
+    <div class="overlay about-overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="main_home text-center">
+                <div class="about_text">
+                    <h1 class="text-white text-uppercase">{%blocktrans%}About{%endblocktrans%}</h1>
+                </div>
+            </div>
+        </div><!--End off row-->
+    </div><!--End off container -->
+</section> <!--End off Home Sections-->
+
+<section id="blog_fashion" class="blog_fashion roomy-100">
+    <div class="container">
+        <div class="row">
+            <div class="main_blog_fashion">
+                <div class="about-content">
+                    <div class="about-lore-info about-title">
+                        <h1>{% trans 'Lore' %}</h1>
+                        <div class="about-lore-hidden about-hidden">
+                            <h3>{% trans 'You can find all the details of the show in our Lore section. Check it out' %} <a href="/{{LANGUAGE_CODE}}/lore">{% trans 'here' %}</a>.</h3>
+                        </div>
+                    </div>
+                    <div class="about-forum-info about-title">
+                        <h1>{% trans 'Forum' %}</h1>
+                        <div class="about-forum-hidden about-hidden">
+                            <h3>{% trans 'Join the debate and interact with other fans in our Forum section. Check it out' %} <a href="/{{LANGUAGE_CODE}}/forum">{% trans 'here' %}</a>.</h3>
+                        </div>
+                    </div>
+                    <div class="about-quiz-info about-title">
+                        <h1>{% trans 'Quiz' %}</h1>
+                        <div class="about-quiz-hidden about-hidden">
+                            <h3>{% trans 'Find out which house you belong to by taking our quiz. Check it out' %} <a href="/{{LANGUAGE_CODE}}/quiz">{% trans 'here' %}</a>.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="about-forum-info about-title">
-        <h1>{% trans 'Forum' %}</h1>
-        <div class="about-forum-hidden about-hidden">
-            <h3>{% trans 'Join the debate and interact with other fans in our Forum section. Check it out' %} <a href="/{{LANGUAGE_CODE}}/forum">{% trans 'here' %}</a>.</h3>
-        </div>
-    </div>
-    <div class="about-quiz-info about-title">
-        <h1>{% trans 'Quiz' %}</h1>
-        <div class="about-quiz-hidden about-hidden">
-            <h3>{% trans 'Find out which house you belong to by taking our quiz. Check it out' %} <a href="/{{LANGUAGE_CODE}}/quiz">{% trans 'here' %}</a>.</h3>
-        </div>
-    </div>
-</div>
+</section>
 <script>
     $(document).ready(function() {
         $(".about-title").hover(function() {

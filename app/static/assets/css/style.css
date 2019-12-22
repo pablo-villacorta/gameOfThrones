@@ -350,6 +350,11 @@ ul{
     background-image: url("assets/thewall.jpg");
     background-size: cover;
 }
+
+.about-overlay {
+    background-image: url("assets/vale.jpg");
+    background-size: cover;
+}
 .no-padding {
     padding: 0 !important;
     margin:0 !important;
@@ -1964,6 +1969,32 @@ Blog Details Page
 
 .episodios-temporada-personaje {
     display: none;
+}
+
+.post {
+    background-color: #F3D8C7;
+    border-radius: 25px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+#threads-table {
+    margin-top: 20px;
+}
+
+#threads-table th {
+    min-width: 100px;
+}
+
+#threads-table td {
+    padding: 5px;
+    padding-left: 0;
+    padding-right: 10px;
+}
+
+.result-group {
+    background-color: white;
+    padding: 10px;
 }
 
 /*

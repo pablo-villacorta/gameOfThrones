@@ -107,7 +107,7 @@
                             <p v-if="characterResults.length > 0">{%blocktrans%}Matching characters:{%endblocktrans%}</p>
                             <ul>
                                 {% verbatim %}
-                                <li v-for="n in characterResults">
+                                <li v-for="n in characterResults" class="search-result">
                                     <a v-bind:href="getCharacterUrl(n)">{{n.name}}</a>
                                 </li>
                                 {% endverbatim %}
@@ -115,7 +115,7 @@
                             <p v-if="houseResults.length > 0">{%blocktrans%}Matching houses:{%endblocktrans%}</p>
                             <ul>
                                 {% verbatim %}
-                                <li v-for="n in houseResults">
+                                <li v-for="n in houseResults" class="search-result">
                                     <a v-bind:href="getHouseUrl(n)">{{n.name}}</a>
                                 </li>
                                 {% endverbatim %}
@@ -123,7 +123,7 @@
                             <p v-if="episodeResults.length > 0">{%blocktrans%}Matching episodes:{%endblocktrans%}</p>
                             <ul>
                                 {% verbatim %}
-                                <li v-for="n in episodeResults">
+                                <li v-for="n in episodeResults" class="search-result">
                                     <a v-bind:href="getEpisodeUrl(n)">{{n.name}}</a>
                                 </li>
                                 {% endverbatim %}
@@ -147,10 +147,10 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="/{{LANGUAGE_CODE}}/">
 
-                            <img src="{% static 'assets/images/logo.png' %}" class="logo logo-display" alt="">
-                            <img src="{% static 'assets/images/logo-black.png' %}" class="logo logo-scrolled" alt="">
+                            <img src="{% static 'assets/images/logo.png' %}" class="logo logo-display" width="162" alt="">
+                            <img src="{% static 'assets/images/logo.png' %}" class="logo logo-scrolled" width="162" alt="">
 
                         </a>
                     </div>

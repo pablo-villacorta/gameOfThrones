@@ -1,12 +1,13 @@
 {% extends 'base_cover.html' %}
 {% block content %}
+{% load i18n %}
 <section id="hello" class="blog-banner bg-mega">
     <div class="overlay quiz-overlay"></div>
     <div class="container">
         <div class="row">
             <div class="main_home text-center">
                 <div class="about_text">
-                    <h1 class="text-black text-uppercase">The Quiz</h1>
+                    <h1 class="text-black text-uppercase">{% trans 'The Quiz' %}</h1>
                 </div>
             </div>
         </div><!--End off row-->
